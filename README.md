@@ -1,12 +1,17 @@
 # booba 2.0
 
-This project is meant is a learning experience, and not for production by anymeans. However, it is open-source so feel free to use it however you like.
+This project is meant as a learning experience, and not for production by any means. However, it is open-source so feel free to use it however you like.
 
 I'm still not settled on a certain folder structure, I will also be learning other stuff as I work on this project so if I learn something new I may or may not replace a previous approach or simply just start using the new approach from that point onwards, and that might cause some inconsistencies in the code, but for now it's okay.
 
 ## Table of contents
 
 - [GetX](#getx)
+  - [Navigation](#navigation)
+  - [State Management](#state-management)
+    - [on update](#on-update)
+    - [Reactive](#reactive)
+  - [More GetX features](#more-getX-features)
 
 # GetX
 
@@ -25,25 +30,25 @@ GetX is a state management solution, it also offers navigation methods that avoi
   ```dart
   Navigator.push(context, MaterialPageRoute(builder: (context) => Page()));
   /// or 
-  Navigator.of(context).push( MaterialPageRoute(builder: (context) => Page()));
+  Navigator.of(context).push(MaterialPageRoute(builder: (context) => Page()));
   ```
-  
+
 - `Get.off(Page());`
   
   ```dart
   Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => Page()));
   /// or
-  Navigator.of(context).pushReplacement(context, MaterialPageRoute(builder: (context) => Page()));
+  ...
   ```
-  
+
 - `Get.ofAll(Page());`
   
   ```dart
   Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => Page()), (route) => false);
   /// or
-  Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) => Page()), (route) => false);
+  ...
   ```
-  
+
 - `Get.back(result = "some result");`
   
   ```dart
@@ -51,7 +56,6 @@ GetX is a state management solution, it also offers navigation methods that avoi
   /// or
   ...
   ```
-  
 
 > [dart - Flutter Back button with return data - Stack Overflow](https://stackoverflow.com/questions/51927885/flutter-back-button-with-return-data#:~:text=To%20return%20data%20to%20the,the%20Future%20in%20the%20SelectionButton.)
 
@@ -60,34 +64,32 @@ GetX is a state management solution, it also offers navigation methods that avoi
   ```dart
   ...
   ```
-  
+
 - `Get.snackbar('title', 'content');`
   
   ```dart
   ScaffoldMessenger.of(context).showSnackBar(SnackBar(...));
   ```
-  
+
 - `Get.defaultDialog(title: 'title', content: Text('content'));`
   
   ```dart
   showDialog(context: context, builder:(context) => Widget);
   ```
-  
+
 - `Get.bottomSheet(Widget);`
   
   ```dart
   showModalBottomSheet(context: context, builder: (context) => Widget);
   ```
-  
 
 ## State Management
 
 ### Types of State Management in GetX
 
 - Reactive: GetX, Obx
-  
+
 - on update: GetBuilder ( simples + consumes less RAM than Reactive )
-  
 
 > There is also kind of mix of both: MixinBuilder
 
@@ -101,9 +103,8 @@ GetX is a state management solution, it also offers navigation methods that avoi
   
   ```dart
   /// example
-  final CountController countController = Get.put(CounterController());
+  final CountController countController = Get.put(CountController());
   ```
-  
 
 or alternatively, instead of initializing the controller yourself, you can do that within the `GetBuilder` and to refer to it later in the co de you can, simply use `Get.find<countController>.(increment())`
 
@@ -115,3 +116,94 @@ GetBuilder(
     builder: (_) => Text('current count value: ${_.count}')
 )
 ```
+
+#### Reactive
+
+- you can decalare a variable or an object as observable using `.obs` ( given that you made the class extend `GetXController` ) and anything that listens to that observable will be rebuilt automatically on change.
+
+- to observe a controller you can simpy use
+  
+  ```dart
+  GetX(
+      init: CountController(),
+      builder: (_) => Widget
+  )
+  ```
+
+> **Obs**
+> 
+> you can think of `Obs` as  a lightweight `GetX` if you e.g. need only the builder
+
+> **Workers**
+> 
+> you would declare workers in the `onInit` method of the controller.
+> 
+> ```dart
+> final count1 = 0.obs;
+> final count2 = 0.obs;
+> 
+> increment1() => count1.value++;
+> increment2() => count2.value++;
+> 
+> int get sum => count1.value + count2.value; 
+> 
+> 
+> @override
+> void onInit(){
+> super.onInit();
+> 
+> /// Workers
+> ever(count1, () => print('count1 has been changed'));
+> 
+> once(count1, () => print('First time count1 is changed'));
+> 
+> debounce(count1, () => print('count1 hasn\'t been changed for 1sec'),
+>     time: Duration(seconds: 1));
+> 
+> debounce(count1, () => print('every 1sec count1 is changed'),
+>     time: Duration(seconds: 1));
+> 
+> }
+> ```
+
+## more GetX features
+
+### Transitions
+
+`GetMaterialApp` => `defaultTransition` 
+
+### [Internationalization](https://adityaajoshi.medium.com/internationalization-in-flutter-using-getx-6d715f6b1c82)
+
+
+
+### Binding
+
+if you had some screen or widget where you inject some controller, you can simple make another class that extends `Bindings` and use `Get.lazyPut<SomeController>(() => SomeController());` within the `dependancies` method override to automatically inject it whenever the widget is built. now, to bind the binding that you've defined you have to bind it to the actual route ( assuming you're working with named routes ). /// "Bind bind bind bind" 🙃
+
+### Validation! 🌟 /// no more LulzValidation 🤤
+
+e.g. `GetUtils.isEmail()`. simple as that, no regex no nothing :D
+
+### Storage! 🌟
+
+> Same GetX developers, [get_storage package](https://pub.dev/packages/get_storage)
+
+I think it's similar to `SharedPreferences` ? but basically you can store or persist some data on the storage for other sessions.
+
+1. initalize in main before running the `GetMaterialApp`, using `await GetStorage.init();` 
+
+2. to use the storage either `read` or `write` first of all make an instance e.g. `GetStorage myStorage = GetStorage();` and then provide the `key` and `value` simple.
+
+### Change Theme
+
+e.g. `Get.changeTheme(ThemeData.light);` 
+
+
+
+### Enviroment Information 🌟
+
+instead of importing `dart:io show Platform` you can simply check for platform e.g. `GetPlatform.isIOS` 
+
+Instead of using `MediaQuery.of(context).size.height` to get the current height of the screen, you can simply use `Get.height` 
+
+YEP :D 
