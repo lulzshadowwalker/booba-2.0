@@ -1,8 +1,7 @@
 name: booba2
 description: A new Flutter project.
 
-publish_to: 'none' 
-
+publish_to: 'none'
 
 version: 1.0.0+1
 
@@ -10,18 +9,25 @@ environment:
   sdk: ">=2.16.0-134.5.beta <3.0.0"
 
 dependencies:
+  cupertino_icons: ^1.0.2
   flutter:
     sdk: flutter
+  
+  
+  # Firebase
+  cloud_firestore: ^3.1.10
+  firebase_auth: ^3.3.10
+
+  # Statemangement, Navigation and more
+  get: ^4.6.1
 
 
-  cupertino_icons: ^1.0.2
 
 dev_dependencies:
-  flutter_test:
-    sdk: flutter
 
   flutter_lints: ^1.0.0
-
+  flutter_test:
+    sdk: flutter
 
 flutter:
 
