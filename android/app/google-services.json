@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "904488825534",
+    "project_id": "booba-v2",
+    "storage_bucket": "booba-v2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:904488825534:android:53fb900687519dba5ea4ef",
+        "android_client_info": {
+          "package_name": "com.example.booba2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "904488825534-futl8lbmo1jt8q7qq8clap45mlq3fka2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDBURx3pFKjS7zqpEg78KRD-5A6mKAhcOU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "904488825534-futl8lbmo1jt8q7qq8clap45mlq3fka2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

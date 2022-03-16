@@ -1,1 +1,84 @@
-class AuthController extends GetXCon
+import 'package:booba2/services/database/database_controller.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:get/get.dart';
+
+import '../../helpers/lulz_imports.dart';
+
+/// TODO use [try-catch] blocks instead of [then-catchError] as they're a little
+/// Buggy and the execution stops on exceptions or maybe [onError] as it is
+/// "a more precisely typed version of catchError"
+/// https://stackoverflow.com/questions/67458952/where-is-the-difference-between-onerror-and-catcherror-in-dart#:~:text=onError%20is%20effectively%20a%20more,just%20a%20Function%20with%20catchError%20.
+/// https://stackoverflow.com/questions/56802675/dart-flutter-debugger-stops-on-caught-exceptions
+class AuthController extends GetxController {
+  static final FirebaseAuth _auth = FirebaseAuth.instance;
+  final DatabaseController _database = DatabaseController();
+
+  final Rx<User?> _firebaseUser = Rx<User?>(_auth.currentUser);
+
+  /// String constants
+  static const String _className = 'AuthController';
+
+  @override
+  void onReady() {
+    super.onReady();
+
+    _firebaseUser.bindStream(_auth.authStateChanges());
+
+    /// Show suitable screen depending on the auth status
+    ever(_firebaseUser, _setScreen);
+  }
+
+  /// auth/home screen depending on auth state
+  /// function callback in the [ever] worker or event
+  _setScreen(User? currentUser) {
+    currentUser == null
+        ? Get.offAll(() => SignInScreen())
+        : Get.offAll(() => const HomeScreen());
+  }
+
+  void signIn(String email, String password) async {
+    /// [catchError] instead of a try-catch block, a little cleaner
+    _auth
+        .signInWithEmailAndPassword(email: email, password: password)
+        .then((_) => Get.snackbar('Sign in successful!', ''))
+        .catchError((error) {
+      LulzHelpers.handleError(
+          snackbarTitle: 'Error signing up', error: error, name: _className);
+    });
+  }
+
+  void signUp({
+    required String email,
+    required String password,
+    required String username,
+  }) async {
+    _auth
+        .createUserWithEmailAndPassword(email: email, password: password)
+        .then((result) async {
+      String? userId = result.user?.uid;
+      if (userId == null) {
+        throw Exception('userId is null');
+      }
+
+      await _database.registerNewUser(
+          userId: userId, email: email, password: password, username: username);
+
+      Get.snackbar('Sign up successful!', '');
+    }).catchError((error) {
+      LulzHelpers.handleError(
+          snackbarTitle: 'Error signing up', error: error, name: _className);
+    });
+  }
+
+  void signOut() async {
+    _auth
+        .signOut()
+        .then((_) => Get.snackbar('Sign out successful!', ''))
+        .catchError((error) {
+      LulzHelpers.handleError(
+          snackbarTitle: 'Error signing out', error: error, name: _className);
+    });
+  }
+}
+
+///  END AUTH_CONTROLLER

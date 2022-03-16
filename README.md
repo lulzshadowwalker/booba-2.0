@@ -5,7 +5,6 @@ This project is meant as a learning experience, and not for production by any me
 I'm still not settled on a certain folder structure, I will also be learning other stuff as I work on this project so if I learn something new I may or may not replace a previous approach or simply just start using the new approach from that point onwards, and that might cause some inconsistencies in the code, but for now it's okay.
 
 ## Table of contents
-
 - [GetX](#getx)
   - [Navigation](#navigation)
   - [State Management](#state-management)
@@ -48,6 +47,9 @@ GetX is a state management solution, it also offers navigation methods that avoi
   /// or
   ...
   ```
+  >WARNING, consider using: "Get.offAll(() => Page())" instead of "Get.offAll(Page())".
+  >       Using a widget function instead of a widget fully guarantees that the widget and its controllers will be removed from memory when they are no longer used.
+
 
 - `Get.back(result = "some result");`
   
@@ -101,6 +103,8 @@ GetX is a state management solution, it also offers navigation methods that avoi
 
 - When instantiating an object from some class that extends `GetXController` you have to "inject" it using the `Get.put()` method
   
+  
+  
   ```dart
   /// example
   final CountController countController = Get.put(CountController());
@@ -119,9 +123,9 @@ GetBuilder(
 
 #### Reactive
 
-- you can decalare a variable or an object as observable using `.obs` ( given that you made the class extend `GetXController` ) and anything that listens to that observable will be rebuilt automatically on change.
+- you can declare a variable or an object as observable using `.obs` ( given that you made the class extend `GetXController` ) and anything that listens to that observable will be rebuilt automatically on change.
 
-- to observe a controller you can simpy use
+- to observe a controller you can simply use
   
   ```dart
   GetX(
@@ -130,13 +134,13 @@ GetBuilder(
   )
   ```
 
-> **Obs**
+> **Obx**
 > 
-> you can think of `Obs` as  a lightweight `GetX` if you e.g. need only the builder
+> you can think of `Obx` as  a lightweight `GetX` if you e.g. need only the builder
 
 > **Workers**
 > 
-> you would declare workers in the `onInit` method of the controller.
+> you would declare workers in the `onInit` method of the controller. 
 > 
 > ```dart
 > final count1 = 0.obs;
@@ -150,19 +154,18 @@ GetBuilder(
 > 
 > @override
 > void onInit(){
-> super.onInit();
+>     super.onInit();
 > 
-> /// Workers
-> ever(count1, () => print('count1 has been changed'));
+>     /// Workers
+>     ever(count1, () => print('count1 has been changed'));
 > 
-> once(count1, () => print('First time count1 is changed'));
+>     once(count1, () => print('First time count1 is changed'));
 > 
-> debounce(count1, () => print('count1 hasn\'t been changed for 1sec'),
->     time: Duration(seconds: 1));
+>     debounce(count1, () => print('count1 hasn\'t been changed for 1sec'),
+>         time: Duration(seconds: 1));
 > 
-> debounce(count1, () => print('every 1sec count1 is changed'),
->     time: Duration(seconds: 1));
-> 
+>     interval(count1, () => print('every 1sec count1 is changed'),
+>         time: Duration(seconds: 1));
 > }
 > ```
 
@@ -174,35 +177,33 @@ GetBuilder(
 
 ### [Internationalization](https://adityaajoshi.medium.com/internationalization-in-flutter-using-getx-6d715f6b1c82)
 
-
-
 ### Binding
 
-if you had some screen or widget where you inject some controller, you can simple make another class that extends `Bindings` and use `Get.lazyPut<SomeController>(() => SomeController());` within the `dependancies` method override to automatically inject it whenever the widget is built. now, to bind the binding that you've defined you have to bind it to the actual route ( assuming you're working with named routes ). /// "Bind bind bind bind" 🙃
+if you had some screen or widget where you inject some controller, you can simple make another class that extends `Bindings` and use `Get.lazyPut<SomeController>(() => SomeController());` within the `dependancies` method override to automatically inject it whenever the widget is built. now, to bind the binding that you've defined you have to bind it to the actual route ( assuming you're working with named routes ). /// "Bind bind bind bind" ?��
 
-### Validation! 🌟 /// no more LulzValidation 🤤
+### Validation! ?�� /// no more LulzValidation ?��
 
 e.g. `GetUtils.isEmail()`. simple as that, no regex no nothing :D
 
-### Storage! 🌟
+### Storage! ?��
 
 > Same GetX developers, [get_storage package](https://pub.dev/packages/get_storage)
 
 I think it's similar to `SharedPreferences` ? but basically you can store or persist some data on the storage for other sessions.
 
-1. initalize in main before running the `GetMaterialApp`, using `await GetStorage.init();` 
+1. initialize in main before running the `GetMaterialApp`, using `await GetStorage.init();` 
 
-2. to use the storage either `read` or `write` first of all make an instance e.g. `GetStorage myStorage = GetStorage();` and then provide the `key` and `value` simple.
+2. to use the storage either `read` or `write`, first of all make an instance e.g. `GetStorage myStorage = GetStorage();` and then provide the `key` and `value` simple.
 
 ### Change Theme
 
 e.g. `Get.changeTheme(ThemeData.light);` 
 
-
-
-### Enviroment Information 🌟
+### Environment Information ?��
 
 instead of importing `dart:io show Platform` you can simply check for platform e.g. `GetPlatform.isIOS` 
+
+> ? Check to see if checking e.g. `GetPlatform.isIOS` crash the app on a web platform just like `Platform.isIOS` does
 
 Instead of using `MediaQuery.of(context).size.height` to get the current height of the screen, you can simply use `Get.height` 
 
