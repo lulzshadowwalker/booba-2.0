@@ -21,6 +21,7 @@ dependencies:
 
   # statemangement, navigation, helpers and more
   get: ^4.6.1
+  google_fonts: ^2.3.1
 
 
 

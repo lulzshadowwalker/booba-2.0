@@ -15,6 +15,7 @@ class DatabaseController {
   static const String _profilePicture = 'profilePicture';
   static const String _className = 'DatabaseController';
 
+  ///  add new user data on sign up [void] is cool
   Future<void> registerNewUser({
     required String userId,
     required String email,
@@ -24,7 +25,7 @@ class DatabaseController {
     Uint8List? profilePicture,
   }) async {
     /// handling null values
-    /// I don't like setting default values in the parameters :D
+    ///- I don't like setting default values in the parameters :D
     status ??= '';
 
     try {

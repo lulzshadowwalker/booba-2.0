@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 
 import '../../helpers/lulz_imports.dart';
+import '../../views/auth/signin/signin_screen.dart';
 
 /// TODO use [try-catch] blocks instead of [then-catchError] as they're a little
 /// Buggy and the execution stops on exceptions or maybe [onError] as it is
@@ -20,6 +21,7 @@ class AuthController extends GetxController {
 
   @override
   void onReady() {
+    /// [onReady] happens one frame after allocating the object in the memory aka [onInit]
     super.onReady();
 
     _firebaseUser.bindStream(_auth.authStateChanges());
@@ -37,7 +39,7 @@ class AuthController extends GetxController {
   }
 
   void signIn(String email, String password) async {
-    /// [catchError] instead of a try-catch block, a little cleaner
+    /// [catchError] instead of a [try-catch] block, a little cleaner
     _auth
         .signInWithEmailAndPassword(email: email, password: password)
         .then((_) => Get.snackbar('Sign in successful!', ''))
@@ -57,6 +59,8 @@ class AuthController extends GetxController {
         .then((result) async {
       String? userId = result.user?.uid;
       if (userId == null) {
+        /// it will probably automatically throw an exception is [uid] is null
+        /// but just in case
         throw Exception('userId is null');
       }
 
@@ -79,6 +83,4 @@ class AuthController extends GetxController {
           snackbarTitle: 'Error signing out', error: error, name: _className);
     });
   }
-}
-
-///  END AUTH_CONTROLLER
+}///  END AUTH_CONTROLLER

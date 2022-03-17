@@ -5,9 +5,10 @@ class Booba extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  GetMaterialApp(
+    return GetMaterialApp(
       title: 'BOOBA-v2',
       debugShowCheckedModeBanner: false,
+      theme: LulzTheme.dark(),
       home: SignInScreen(),
     );
   }

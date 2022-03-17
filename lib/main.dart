@@ -4,8 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import './LOCAL.dart';
 
-/// Send Firebase Options file to the other machine
-
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
