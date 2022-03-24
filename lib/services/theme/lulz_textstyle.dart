@@ -11,17 +11,26 @@ class LulzTextStyle {
   static const double _xsm = 9;
   static const double _xsm2 = 5.33;
 
-  static final String? _fontFamily = GoogleFonts.openSans().fontFamily;
+  /// getters
+  get getXl3 => _xl3;
+  get getXl2 => _xl2;
+  get getXl => _xl;
+  get getL => _l;
+  get getMd => _md;
+  get getSm => _sm;
+  get getXsm => _xsm;
+  get getXsm2 => _xsm2;
 
+  /// TODO get current theme and set [_textTheme] either white or dark
   static final TextTheme _textTheme = ThemeData.dark().textTheme;
 
-  /// I didn't know much about text styles in design in general 
+  /// I didn't know much about text styles in design in general
   /// when I made the mockup, so this is what I'm going with.
   /// docs: ( https://api.flutter.dev/flutter/material/TextTheme-class.html#:~:text=headline1%20%20%20%2096.0%20%20light,10.0%20%20regular%20%201.5 )
   static final TextStyle? xl3 = _textTheme.headline1
       ?.copyWith(fontSize: _xl3, fontWeight: FontWeight.w700);
   static final TextStyle? xl2 = _textTheme.headline2
-      ?.copyWith(fontSize: _xl2, fontWeight: FontWeight.w700);  
+      ?.copyWith(fontSize: _xl2, fontWeight: FontWeight.w700);
 
   static final TextStyle? xl = _textTheme.headline3
       ?.copyWith(fontSize: _xl, fontWeight: FontWeight.w700);

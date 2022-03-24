@@ -1,7 +1,7 @@
-part of '../../helpers/lulz_imports.dart';
+part of '../../../helpers/lulz_imports.dart';
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+class MHome extends StatelessWidget {
+  const MHome({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -10,6 +10,6 @@ class HomeScreen extends StatelessWidget {
         body: Center(
             child: ElevatedButton(
                 onPressed: () => Get.find<AuthController>().signOut(),
-                child: const Text('Sign out'))));
+                child: const Text('[Mobile Home] SIGN OUT'))));
   }
 }
