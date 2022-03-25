@@ -5,12 +5,16 @@ This project is meant as a learning experience, and not for production by any me
 I'm still not settled on a certain folder structure, I will also be learning other stuff as I work on this project so if I learn something new I may or may not replace a previous approach or simply just start using the new approach from that point onwards, and that might cause some inconsistencies in the code, but for now it's okay.
 
 ## Table of contents
+- [What I learned](#what-i-learned)
 - [GetX](#getx)
   - [Navigation](#navigation)
   - [State Management](#state-management)
     - [on update](#on-update)
     - [Reactive](#reactive)
   - [More GetX features](#more-getX-features)
+
+# what I learned
+  - [incorrect use of parent widget](https://bit.ly/3iP4Pv7)
 
 # GetX
 
@@ -179,13 +183,12 @@ GetBuilder(
 
 ### Binding
 
-if you had some screen or widget where you inject some controller, you can simple make another class that extends `Bindings` and use `Get.lazyPut<SomeController>(() => SomeController());` within the `dependancies` method override to automatically inject it whenever the widget is built. now, to bind the binding that you've defined you have to bind it to the actual route ( assuming you're working with named routes ). /// "Bind bind bind bind" ?��
-
-### Validation! ?�� /// no more LulzValidation ?��
+if you had some screen or widget where you inject some controller, you can simple make another class that extends `Bindings` and use `Get.lazyPut<SomeController>(() => SomeController());` within the `dependancies` method override to automatically inject it whenever the widget is built. now, to bind the binding that you've defined you have to bind it to the actual route ( assuming you're working with named routes ). /// "Bind bind bind bind" 🙃
+### Validation! 🌟 /// no more LulzValidation 🤤
 
 e.g. `GetUtils.isEmail()`. simple as that, no regex no nothing :D
 
-### Storage! ?��
+### Storage! 🌟
 
 > Same GetX developers, [get_storage package](https://pub.dev/packages/get_storage)
 
@@ -199,7 +202,7 @@ I think it's similar to `SharedPreferences` ? but basically you can store or per
 
 e.g. `Get.changeTheme(ThemeData.light);` 
 
-### Environment Information ?��
+### Environment Information! 🌟
 
 instead of importing `dart:io show Platform` you can simply check for platform e.g. `GetPlatform.isIOS` 
 
