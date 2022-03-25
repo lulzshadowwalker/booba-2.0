@@ -9,7 +9,8 @@ class Booba extends StatelessWidget {
       title: 'BOOBA-v2',
       debugShowCheckedModeBanner: false,
       theme: LulzTheme.dark(),
-      home: ResponsiveAuth(),
+      home: const DSignUp(),
+      defaultTransition: Transition.noTransition,
     );
   }
 }

@@ -183,13 +183,12 @@ GetBuilder(
 
 ### Binding
 
-if you had some screen or widget where you inject some controller, you can simple make another class that extends `Bindings` and use `Get.lazyPut<SomeController>(() => SomeController());` within the `dependancies` method override to automatically inject it whenever the widget is built. now, to bind the binding that you've defined you have to bind it to the actual route ( assuming you're working with named routes ). /// "Bind bind bind bind" ?��
-
-### Validation! ?�� /// no more LulzValidation ?��
+if you had some screen or widget where you inject some controller, you can simple make another class that extends `Bindings` and use `Get.lazyPut<SomeController>(() => SomeController());` within the `dependancies` method override to automatically inject it whenever the widget is built. now, to bind the binding that you've defined you have to bind it to the actual route ( assuming you're working with named routes ). /// "Bind bind bind bind" 🙃
+### Validation! 🌟 /// no more LulzValidation 🤤
 
 e.g. `GetUtils.isEmail()`. simple as that, no regex no nothing :D
 
-### Storage! ?��
+### Storage! 🌟
 
 > Same GetX developers, [get_storage package](https://pub.dev/packages/get_storage)
 
@@ -203,7 +202,7 @@ I think it's similar to `SharedPreferences` ? but basically you can store or per
 
 e.g. `Get.changeTheme(ThemeData.light);` 
 
-### Environment Information ?��
+### Environment Information! 🌟
 
 instead of importing `dart:io show Platform` you can simply check for platform e.g. `GetPlatform.isIOS` 
 

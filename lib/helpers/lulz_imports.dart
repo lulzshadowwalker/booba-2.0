@@ -1,5 +1,7 @@
 import 'package:booba2/services/auth/auth_controller.dart';
 import 'package:booba2/views/auth/desktop/signin/components/d_signin_form.dart';
+import 'package:booba2/views/auth/desktop/signup/d_signup.dart';
+import 'package:booba2/views/auth/desktop/signup/components/d_signup_form_step1.dart';
 import 'package:booba2/views/auth/mobile/signin/m_signin.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -18,6 +20,7 @@ part '../views/responsive/responsive_home.dart';
 part '../views/home/desktop/d_home.dart';
 part '../views/home/mobile/m_home.dart';
 part '../views/auth/desktop/signin/components/d_signin_body.dart';
+part '../views/auth/desktop/signup/components/d_signup_body.dart';
 
 /// Helpers
 part './lulz_helpers.dart';

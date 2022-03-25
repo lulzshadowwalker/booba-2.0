@@ -11,12 +11,14 @@ class LulzFormField extends StatelessWidget {
     BoxConstraints? constraints,
     TextInputType? keyboardType,
     bool? obscureText,
+    String? Function(String? input)? validator,
   })  : _controller = controller,
         _hintText = hintText,
         _prefixIcon = prefixIcon,
         _constraints = constraints,
         _keyboardType = keyboardType,
         _obscureText = obscureText,
+        _validator = validator,
         super(key: key);
 
   final TextEditingController _controller;
@@ -25,26 +27,40 @@ class LulzFormField extends StatelessWidget {
   final BoxConstraints? _constraints;
   final TextInputType? _keyboardType;
   final bool? _obscureText;
+  final String? Function(String? input)? _validator;
 
-  /// TODO add a callback to tell the parent widget about the validation evaluation
   /// TODO add a shadow effect, psimple ( https://stackoverflow.com/questions/62066259/adding-shadow-to-inside-of-text-field-flutter )
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      validator: _validator,
       cursorWidth: 5,
       cursorColor: LulzColors.accent3,
       textAlign: TextAlign.start,
-      style: LulzTextStyle.button?.copyWith(color: LulzColors.backgroundDark),
+      style: LulzTextStyle.button?.copyWith(
+          color: LulzColors.backgroundDark, fontSize: LulzTextStyle().getL - 5),
       controller: _controller,
       keyboardType: _keyboardType,
       obscureText: _obscureText ?? false,
       decoration: InputDecoration(
+
         constraints: _constraints,
+        
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(15.0.r)),
         contentPadding: const EdgeInsets.only(top: 10),
         hintText: _hintText,
-        prefixIcon: _prefixIcon,
-        focusColor: Colors.red,
+        hintStyle: LulzTextStyle.button?.copyWith(
+            color: LulzColors.accent3, fontSize: LulzTextStyle().getL),
+        prefixIcon: Padding(
+            padding: const EdgeInsets.only(left: 35, right: 10),
+            child: _prefixIcon),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(15.0.r),
+          borderSide: BorderSide(
+            color: LulzColors.accent3,
+          ),
+          
+        ),
       ),
     );
   }

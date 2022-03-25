@@ -24,6 +24,7 @@ class LulzTheme {
       /// * ElevatedButton
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
+          
           primary: LulzColors.accent3,
           textStyle: LulzTextStyle.button?.copyWith(fontSize: LulzTextStyle._l),
           minimumSize: const Size(double.infinity, 52),

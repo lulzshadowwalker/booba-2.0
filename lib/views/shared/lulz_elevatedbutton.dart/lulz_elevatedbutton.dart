@@ -1,6 +1,7 @@
 import 'package:booba2/helpers/lulz_imports.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class LulzElevatedButton extends StatelessWidget {
   const LulzElevatedButton({
@@ -10,13 +11,11 @@ class LulzElevatedButton extends StatelessWidget {
     Size? maxSize,
     required VoidCallback onPressed,
   })  : _text = text,
-        _maxSize = maxSize,
         _onPressed = onPressed,
         _textColor = textColor,
         super(key: key);
 
   final String _text;
-  final Size? _maxSize;
   final VoidCallback _onPressed;
   final Color? _textColor;
 
@@ -33,10 +32,8 @@ class LulzElevatedButton extends StatelessWidget {
         ),
       ),
       style: ElevatedButton.styleFrom(
-        /// ? [fixedSized]'s width doesn't work properly idk why so this works for now
-        minimumSize: _maxSize,
-        maximumSize: _maxSize,
-      ),
+
+          fixedSize: Size.fromHeight(55.h)),
     );
   }
 }

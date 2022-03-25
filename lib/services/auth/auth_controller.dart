@@ -47,7 +47,7 @@ class AuthController extends GetxController {
           snackbarTitle: 'Error signing up', error: error, name: _className);
     });
   }
-                  
+
   void signUp({
     required String email,
     required String password,
