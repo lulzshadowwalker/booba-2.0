@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../helpers/lulz_imports.dart';
-import '../../../services/auth/auth_controller.dart';
+import '../../../../helpers/lulz_imports.dart';
+import '../../../../services/auth/auth_controller.dart';
 
-class SignInScreen extends StatelessWidget {
-  SignInScreen({Key? key}) : super(key: key);
+class MSignIn extends StatelessWidget {
+  MSignIn({Key? key}) : super(key: key);
   final TextEditingController _email = TextEditingController();
   final TextEditingController _password = TextEditingController();
   final AuthController _authController = Get.put(AuthController());

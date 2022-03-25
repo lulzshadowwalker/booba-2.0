@@ -3,7 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 
 import '../../helpers/lulz_imports.dart';
-import '../../views/auth/signin/signin_screen.dart';
+import '../../views/auth/signin/mobile/m_sign_in.dart';
 
 /// TODO use [try-catch] blocks instead of [then-catchError] as they're a little
 /// Buggy and the execution stops on exceptions or maybe [onError] as it is
@@ -34,8 +34,9 @@ class AuthController extends GetxController {
   /// function callback in the [ever] worker or event
   _setScreen(User? currentUser) {
     currentUser == null
-        ? Get.offAll(() => SignInScreen())
-        : Get.offAll(() => const HomeScreen());
+
+        ? Get.offAll(() => const ResponsiveLayoutAuth())
+        : Get.offAll(() => const ResponsiveLayoutHome());
   }
 
   void signIn(String email, String password) async {
