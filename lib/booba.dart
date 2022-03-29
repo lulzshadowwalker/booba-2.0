@@ -5,12 +5,15 @@ class Booba extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
-      title: 'BOOBA-v2',
-      debugShowCheckedModeBanner: false,
-      theme: LulzTheme.dark(),
-      home: const DSignUp(),
-      defaultTransition: Transition.noTransition,
+    return ScreenUtilInit(
+      designSize: LulzConst.mSize,
+      builder: () => GetMaterialApp(
+        title: 'BOOBA-v2',
+        debugShowCheckedModeBanner: false,
+        theme: LulzTheme.dark(),
+        home: const MSignIn(),
+        defaultTransition: Transition.circularReveal,
+      ),
     );
   }
 }

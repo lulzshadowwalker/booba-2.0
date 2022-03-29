@@ -3,6 +3,7 @@ import 'package:booba2/services/auth/auth_controller.dart';
 import 'package:booba2/views/shared/lulz_elevatedbutton.dart/lulz_elevatedbutton.dart';
 import 'package:booba2/views/shared/lulz_formfield/lulz_formfield.dart';
 import 'package:booba2/views/shared/lulz_outlinedbutton.dart/lulz_outlinedbutton.dart';
+import 'package:booba2/views/shared/lulz_text/lulz_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -33,7 +34,7 @@ class DSignInForm extends StatelessWidget {
                 child: LulzElevatedButton(
                   text: 'Sign in',
                   textColor: LulzColors.backgroundDark,
-                  textWidth: 349.w,
+                  textWidth: 90.w,
                   onPressed: () {
                     if (_formKey.currentState!.validate()) {
                       Get.find<AuthController>().signIn(
@@ -52,7 +53,8 @@ class DSignInForm extends StatelessWidget {
               Expanded(
                 child: LulzOutlinedButton(
                   text: 'Sign up ?',
-                  onPressed: () => Get.to(() => const DSignUp()),
+                  textWidth: 115.w,
+                  onPressed: () => Get.to(() => const ResponsiveSignUp()),
                 ),
               ) // 3
             ],
@@ -92,7 +94,8 @@ class DSignInForm extends StatelessWidget {
           ), // 4
           7.verticalSpace, // 3
 
-          Text('SIGN IN', style: LulzTextStyle.xl3), // 2
+          LulzText(
+              text: 'SIGN IN', textWidth: 349.w, style: LulzTextStyle.xl3), // 2
           60.verticalSpace, // 1
         ],
       ),

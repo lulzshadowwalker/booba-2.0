@@ -1,7 +1,7 @@
 part of '../../helpers/lulz_imports.dart';
 
-class ResponsiveAuth extends StatelessWidget {
-  const ResponsiveAuth({Key? key}) : super(key: key);
+class ResponsiveSignIn extends StatelessWidget {
+  const ResponsiveSignIn({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

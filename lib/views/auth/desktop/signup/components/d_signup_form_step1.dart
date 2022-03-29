@@ -1,5 +1,4 @@
 import 'package:booba2/helpers/lulz_imports.dart';
-import 'package:booba2/views/auth/desktop/signin/d_signin.dart';
 import 'package:booba2/views/auth/desktop/signup/components/d_signup_form_step2.dart';
 import 'package:booba2/views/shared/lulz_elevatedbutton.dart/lulz_elevatedbutton.dart';
 import 'package:booba2/views/shared/lulz_formfield/lulz_formfield.dart';
@@ -65,7 +64,7 @@ class DSignUpFormStep1 extends StatelessWidget {
           24.verticalSpace, // 7
 
           // Sign in/up buttons
-          Wrap(
+          Row(
             children: [
               /// Sign in button
               Expanded(
@@ -74,7 +73,7 @@ class DSignUpFormStep1 extends StatelessWidget {
                   text: 'Step 2 / 2',
                   textWidth: 123.w,
                   textColor: LulzColors.backgroundDark,
-                  onPressed: () { 
+                  onPressed: () {
                     if (_formKey.currentState!.validate()) {}
                     Get.to(
                       () => DSignUpFormStep2(
@@ -91,6 +90,7 @@ class DSignUpFormStep1 extends StatelessWidget {
               Expanded(
                 child: LulzOutlinedButton(
                   text: 'Sign in ?',
+                  textWidth: 106.w,
                   onPressed: () => Get.to(() => const DSignIn()),
                 ),
               ) // 3

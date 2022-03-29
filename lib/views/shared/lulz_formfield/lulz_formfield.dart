@@ -43,23 +43,20 @@ class LulzFormField extends StatelessWidget {
       keyboardType: _keyboardType,
       obscureText: _obscureText ?? false,
       decoration: InputDecoration(
-
         constraints: _constraints,
-        
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(15.0.r)),
         contentPadding: const EdgeInsets.only(top: 10),
         hintText: _hintText,
         hintStyle: LulzTextStyle.button?.copyWith(
             color: LulzColors.accent3, fontSize: LulzTextStyle().getL),
         prefixIcon: Padding(
-            padding: const EdgeInsets.only(left: 35, right: 10),
+            padding: const EdgeInsets.only(left: 20, right: 8),
             child: _prefixIcon),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(15.0.r),
           borderSide: BorderSide(
             color: LulzColors.accent3,
           ),
-          
         ),
       ),
     );

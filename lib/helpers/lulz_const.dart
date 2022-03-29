@@ -21,7 +21,9 @@ class LulzConst {
   static const Size mSize = Size(360, 800);
 
   static final double dFormFieldMaxHeight = 52.h;
+  static final double mFormFieldMaxHeight = 39.h;
   static final double dFormFieldMaxWidth = 820.w;
+  static final double mFormFieldMaxWidth = 296.w;
 
   static final double dButtonMaxHeight = 55.h;
 }

@@ -1,4 +1,5 @@
 import 'package:booba2/services/database/database_controller.dart';
+import 'package:booba2/views/auth/mobile/signin/m_signin.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 
@@ -33,8 +34,8 @@ class AuthController extends GetxController {
   /// function callback in the [ever] worker or event
   _setScreen(User? currentUser) {
     currentUser == null
-        ? Get.offAll(() => ResponsiveAuth())
-        : Get.offAll(() => const ResponsiveHome());
+        ? Get.offAll(() => const MSignIn())
+        : Get.offAll(() => const MHome());
   }
 
   void signIn(String email, String password) async {

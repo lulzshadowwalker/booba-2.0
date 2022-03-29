@@ -15,10 +15,9 @@ class DSignUp extends StatelessWidget {
           children: [
             /// body
             const Expanded(flex: 7, child: DSignUpBody()),
-            
+
             /// footer
             Expanded(flex: 3, child: Container(color: LulzColors.whiteCatDraw)),
-
           ],
         ),
       ),

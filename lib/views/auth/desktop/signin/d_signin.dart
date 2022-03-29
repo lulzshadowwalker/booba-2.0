@@ -1,8 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-import '../../../../helpers/lulz_imports.dart';
-
+part of '../../../../helpers/lulz_imports.dart';
 
 class DSignIn extends StatelessWidget {
   const DSignIn({Key? key}) : super(key: key);
