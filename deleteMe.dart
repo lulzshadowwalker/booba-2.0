@@ -1,0 +1,3 @@
+class lulz{
+int a;
+}
