@@ -10,7 +10,18 @@ class LulzTextStyle {
   static const double _sm = 12;
   static const double _xsm = 9;
   static const double _xsm2 = 5.33;
-  
+
+  /// getters
+  get getXl3 => _xl3;
+  get getXl2 => _xl2;
+  get getXl => _xl;
+  get getL => _l;
+  get getMd => _md;
+  get getSm => _sm;
+  get getXsm => _xsm;
+  get getXsm2 => _xsm2;
+
+  /// TODO get current theme and set [_textTheme] either white or dark
   static final TextTheme _textTheme = ThemeData.dark().textTheme;
 
   /// I didn't know much about text styles in design in general

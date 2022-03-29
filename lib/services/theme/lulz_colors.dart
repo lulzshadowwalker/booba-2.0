@@ -28,4 +28,6 @@ class LulzColors {
 
       /// TODO add an intermediate smoothing color
       LinearGradient(colors: <Color>[accent2, accent3]);
+
+  static Color blue = colorFromHex('#00495C');
 }

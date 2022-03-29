@@ -1,3 +1,0 @@
-class lulz{
-int a;
-}
