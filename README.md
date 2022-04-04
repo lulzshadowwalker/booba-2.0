@@ -107,7 +107,7 @@ GetX is a state management solution, it also offers navigation methods that avoi
 
 - When instantiating an object from some class that extends `GetXController` you have to "inject" it using the `Get.put()` method
   
-  
+> **"** note : If you want multiple instances of a single Controller class, you would be able to pass a unique tag parameter in Get.put or Get.lazyPut or in the GetBuilder or GetX widget to uniquely define the Controller and then in the child widgets or anywhere you want to find it use that unique tag to identify which one do you want. **"**[source](https://bit.ly/3uAM97O)
   
   ```dart
   /// example

@@ -1,10 +1,10 @@
 import 'package:booba2/helpers/lulz_imports.dart';
 import 'package:booba2/services/auth/auth_controller.dart';
-import '../../../../shared/lulz_shared.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import '../../signup/d_signup.dart';
+
+import '../../../../shared/lulz_shared.dart';
 
 class DSignInForm extends StatelessWidget {
   DSignInForm({Key? key}) : super(key: key);

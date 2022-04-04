@@ -2,7 +2,6 @@ import 'package:booba2/helpers/lulz_imports.dart';
 import 'package:booba2/services/auth/auth_controller.dart';
 import 'package:booba2/views/auth/mobile/signup/m_signup.dart';
 import 'package:get/get.dart';
-import 'package:get/get_utils/src/get_utils/get_utils.dart';
 import '../../../../shared/lulz_shared.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -37,57 +36,60 @@ class _MSignInFormState extends State<MSignInForm> {
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 35.w),
-      child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-        /// Header text
-        LulzText(
-          text: 'SIGN IN',
-          textWidth: 233.w,
-          style: LulzTextStyle.xl2,
-        ),
-        2.verticalSpace,
-
-        /// Email
-        LulzFormField(
-          controller: _emailController,
-          hintText: 'Email',
-          keyboardType: TextInputType.emailAddress,
-          prefixIcon: const Icon(
-            Icons.email_rounded,
+      child: Form(
+        key: _formKey,
+        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+          /// Header text
+          LulzText(
+            text: 'SIGN IN',
+            textWidth: 233.w,
+            style: LulzTextStyle.xl2,
           ),
-          constraints: _formFieldConstraints,
-          validator: (value) {
-            value ??= '';
-            return !GetUtils.isEmail(value)
-                ? 'Provide a valid email dumbass'
-                : null;
-          },
-        ),
-        12.verticalSpace,
+          2.verticalSpace,
 
-        /// Password
-        LulzFormField(
-          controller: _passwordController,
-          hintText: 'Password',
-          prefixIcon: const Icon(Icons.lock),
-          obscureText: true,
-          constraints: _formFieldConstraints,
-          validator: (value) => GetUtils.isLengthLessThan(value, 8)
-              ? 'Password length must be at least 8!'
-              : null,
-        ),
-        69.verticalSpace,
+          /// Email
+          LulzFormField(
+            controller: _emailController,
+            hintText: 'Email',
+            keyboardType: TextInputType.emailAddress,
+            prefixIcon: const Icon(
+              Icons.email_rounded,
+            ),
+            constraints: _formFieldConstraints,
+            validator: (value) {
+              value ??= '';
+              return !GetUtils.isEmail(value)
+                  ? 'Provide a valid email dumbass'
+                  : null;
+            },
+          ),
+          12.verticalSpace,
 
-        /// Sign in button
-        LulzElevatedButton(
-            text: 'Sign in', onPressed: _signIn, textWidth: 60.w),
-        12.verticalSpace,
+          /// Password
+          LulzFormField(
+            controller: _passwordController,
+            hintText: 'Password',
+            prefixIcon: const Icon(Icons.lock),
+            obscureText: true,
+            constraints: _formFieldConstraints,
+            validator: (value) => GetUtils.isLengthLessThan(value, 8)
+                ? 'Password length must be at least 8!'
+                : null,
+          ),
+          69.verticalSpace,
 
-        /// Go to sign up page button
-        LulzOutlinedButton(
-            text: 'Sign up ?',
-            textWidth: 75.w,
-            onPressed: () => Get.to(() => const MSignUp()))
-      ]),
+          /// Sign in button
+          LulzElevatedButton(
+              text: 'Sign in', onPressed: _signIn, textWidth: 60.w),
+          12.verticalSpace,
+
+          /// Go to sign up page button
+          LulzOutlinedButton(
+              text: 'Sign up ?',
+              textWidth: 75.w,
+              onPressed: () => Get.to(() => const MSignUp()))
+        ]),
+      ),
     );
   }
 

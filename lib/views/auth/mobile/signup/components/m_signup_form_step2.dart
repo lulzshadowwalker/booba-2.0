@@ -1,4 +1,4 @@
-/// ! when implementing web, refactor this as it's pretty similar to [MSignUpFormStep2]
+/// ! when implementing web, refactor this as it's pretty similar to [DSignUpFormStep2]
 import 'dart:typed_data';
 
 import 'package:booba2/helpers/lulz_imports.dart';
@@ -138,7 +138,6 @@ class _UserInfoState extends State<_UserInfo> {
 
         /// Username
         LulzFormField(
-          /// TODO add inner shadow
           controller: _usernameController,
           hintText: 'Username',
           prefixIcon: const Icon(Icons.person),

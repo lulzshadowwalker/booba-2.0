@@ -9,6 +9,8 @@ class MSignIn extends StatelessWidget {
   MSignIn({Key? key}) : super(key: key);
 
   /// TODO use Get put lazy instead ?
+  /// ! do NOT remove this line
+  // ignore: unused_field
   final AuthController _authController = Get.put(AuthController());
 
   @override
@@ -34,7 +36,7 @@ class MSignIn extends StatelessWidget {
                     LulzImages.catDraw,
                     // width: 340.w,
                     // height: 405.17.h,
-                    fit: BoxFit.cover,
+                    fit: BoxFit.fitHeight,
                     alignment: Alignment.centerRight,
                   ),
                 ),

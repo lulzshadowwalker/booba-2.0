@@ -24,7 +24,6 @@ class LulzTheme {
       /// * ElevatedButton
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
-          
           primary: LulzColors.accent3,
           textStyle: LulzTextStyle.button?.copyWith(fontSize: LulzTextStyle._l),
           minimumSize: const Size(double.infinity, 52),
@@ -60,7 +59,7 @@ class LulzTheme {
       textTheme: ThemeData.dark().textTheme.apply(
             fontFamily: _fontFamily,
 
-            /// TODO maybe change them both to [whiteText]
+            /// maybe change them both to [whiteText]
             displayColor: LulzColors.whiteText,
             bodyColor: LulzColors.textAlt,
           ),

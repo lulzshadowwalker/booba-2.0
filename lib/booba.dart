@@ -13,7 +13,8 @@ class Booba extends StatelessWidget {
         theme: LulzTheme.dark(),
         home: MSignIn(),
         defaultTransition: Transition.circularReveal,
-      ),
+        transitionDuration: const Duration(milliseconds: 1000),
+      ), 
     );
   }
 }

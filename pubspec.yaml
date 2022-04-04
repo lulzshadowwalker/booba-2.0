@@ -31,7 +31,12 @@ dependencies:
 
   animated_text_kit: ^4.2.1
   firebase_storage: ^10.2.9
-
+ 
+  # bottom navigation bar 
+  flashy_tab_bar2: ^0.0.4
+  
+  # icons
+  line_icons: ^2.0.1
 
 
 dev_dependencies:

@@ -1,11 +1,10 @@
 import 'package:booba2/helpers/lulz_imports.dart';
-import 'package:booba2/views/auth/desktop/signup/components/d_signup_form_step2.dart';
 import 'package:booba2/views/auth/mobile/signin/m_signin.dart';
 import 'package:booba2/views/auth/mobile/signup/components/m_signup_form_step2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:get/get_utils/src/get_utils/get_utils.dart';
+
 
 import '../../../../shared/lulz_shared.dart';
 

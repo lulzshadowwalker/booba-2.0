@@ -24,10 +24,6 @@ class LulzColors {
   static Color green = colorFromHex('#80FA46');
   static Color greenTransparent = green.withOpacity(0.1);
   static Color whiteTransparent = colorFromHex('#EBEAF0').withOpacity(0.35);
-  LinearGradient gradient1 =
-
-      /// TODO add an intermediate smoothing color
-      LinearGradient(colors: <Color>[accent2, accent3]);
 
   static Color blue = colorFromHex('#00495C');
 }

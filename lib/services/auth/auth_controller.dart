@@ -2,6 +2,7 @@ import 'dart:typed_data';
 
 import 'package:booba2/services/database/database_controller.dart';
 import 'package:booba2/views/auth/mobile/signin/m_signin.dart';
+import 'package:booba2/views/home/mobile/m_home.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 
@@ -51,11 +52,12 @@ class AuthController extends GetxController {
     });
   }
 
-  void signUp(
-      {required String email,
-      required String password,
-      required String username,
-      required Uint8List profilePicture}) async {
+  void signUp({
+    required String email,
+    required String password,
+    required String username,
+    required Uint8List profilePicture,
+  }) async {
     _auth
         .createUserWithEmailAndPassword(email: email, password: password)
         .then((result) async {
@@ -67,11 +69,12 @@ class AuthController extends GetxController {
       }
 
       await _database.registerNewUser(
-          userId: userId,
-          email: email,
-          password: password,
-          username: username,
-          profilePicture: profilePicture);
+        userId: userId,
+        email: email,
+        password: password,
+        username: username,
+        profilePicture: profilePicture,
+      );
 
       Get.snackbar('Sign up successful!', '');
     }).catchError((error) {
@@ -91,6 +94,4 @@ class AuthController extends GetxController {
   }
 
   static User? get currentUser => _auth.currentUser;
-}
-
-///  END AUTH_CONTROLLER
+}///  END AUTH_CONTROLLER

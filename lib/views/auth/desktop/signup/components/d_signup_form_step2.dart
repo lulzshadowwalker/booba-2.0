@@ -86,7 +86,9 @@ class _UserInfo extends StatefulWidget {
 
   static const double _profilePicSize = 128.0;
 
+  // ignore: unused_field
   final String _email;
+  // ignore: unused_field
   final String _password;
 
   @override

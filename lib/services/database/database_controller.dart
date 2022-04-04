@@ -40,7 +40,7 @@ class DatabaseController {
         _username: username,
         _status: status,
         _profilePicture:
-            profilePictureDownloadUrl // TODO Link to StorageController and get the download link and handle check for null
+            profilePictureDownloadUrl 
       });
     } catch (e) {
       dev.log(
