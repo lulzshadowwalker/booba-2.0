@@ -15,7 +15,17 @@ I'm still not settled on a certain folder structure, I will also be learning oth
 
 # what I learned
   - [incorrect use of parent widget](https://bit.ly/3iP4Pv7)
-
+  - To preserve the state of a page when switching to another one from e.g. a navigation bar, an [IndexedStack]
+  since the widgets don't get popped out of the stack, the state of the page is thus reserved. [read more](https://bit.ly/3J6p4PA)
+  ```dart
+  /// Example
+  IndexedStack(
+  index: _selectedIndex,
+  children: _pages)
+  ```
+  > I'm not sure if they fixed this, but obviously it can be a pebrformance drain because stuff in other pages that are not currently in use don't lose focus e.g. a [TextField] would still recieve input and animations would still be running. But again, this may or may not have been fixed. [Github-Issue](https://github.com/flutter/flutter/issues/61659)
+  - [color] property has been depricated and [backgroundColor] should be used instead
+  - `Get.back()` doesn't throw any errors or weird behaviors if there is no previous page in the stack, not sure how the built-in navigation would behave in that case, might have to try.
 # GetX
 
 GetX is a state management solution, it also offers navigation methods that avoid the redundant boilerplate code of the built-in navigation system in flutter
@@ -108,7 +118,7 @@ GetX is a state management solution, it also offers navigation methods that avoi
 - When instantiating an object from some class that extends `GetXController` you have to "inject" it using the `Get.put()` method
   
 > **"** note : If you want multiple instances of a single Controller class, you would be able to pass a unique tag parameter in Get.put or Get.lazyPut or in the GetBuilder or GetX widget to uniquely define the Controller and then in the child widgets or anywhere you want to find it use that unique tag to identify which one do you want. **"**[source](https://bit.ly/3uAM97O)
-  
+  ]
   ```dart
   /// example
   final CountController countController = Get.put(CountController());

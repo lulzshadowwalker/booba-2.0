@@ -1,9 +1,10 @@
-import 'package:flashy_tab_bar2/flashy_tab_bar2.dart';
+import 'package:booba2/services/auth/auth_controller.dart';
+import 'package:booba2/views/feed/mobile/m_feed.dart';
+import 'package:booba2/views/home/mobile/components/lulz_bottomnavigationbar.dart';
 import 'package:flutter/material.dart';
-import 'package:line_icons/line_icons.dart';
+import 'package:get/get.dart';
 
-import '../../../helpers/lulz_imports.dart';
-
+/// ! This is not the [FeedPage], this is the base page controlled by the bottom nav bar
 class MHome extends StatefulWidget {
   const MHome({Key? key}) : super(key: key);
 
@@ -13,34 +14,27 @@ class MHome extends StatefulWidget {
 
 class _MHomeState extends State<MHome> {
   int _selectedIndex = 0;
+  final List<Widget> _pages = [
+    MFeed(),
+    const Text('💬 Chat'),
+    TextButton(
+      child: const Text('🚪 Sign out'),
+      onPressed: () => Get.find<AuthController>().signOut(),
+    ),
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: FlashyTabBar(
-        selectedIndex: _selectedIndex,
-        showElevation: true,
-        onItemSelected: (index) => setState(() {
-          /// add a callback on refactor
-          _selectedIndex = index;
-        }),
-        backgroundColor: LulzColors.backgroundDark,
-        items: [
-          /// TODO refactor this using a map and foreach
-
-          FlashyTabBarItem(
-            icon: const Icon(LineIcons.comments),
-            title: const Text('Chat'),
-          ),
-          FlashyTabBarItem(
-            icon: const Icon(LineIcons.home),
-            title: const Text('Home'),
-          ),
-          FlashyTabBarItem(
-            icon: const Icon(LineIcons.tools),
-            title: const Text('Settings'),
-          ),
-        ],
+      body: Center(
+        child: IndexedStack(
+          alignment: Alignment.center,
+          index: _selectedIndex,
+          children: _pages,
+        ),
       ),
+      bottomNavigationBar: LulzBottomNavigationBar(
+          onTabChangeCallback: (selectedIndex) =>
+              setState((() => _selectedIndex = selectedIndex))),
     );
   }
 }

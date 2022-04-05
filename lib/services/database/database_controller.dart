@@ -1,8 +1,9 @@
-import 'dart:developer' as dev;
 import 'dart:typed_data';
 
-import 'package:booba2/services/storage/lulz_storage.dart';
+import 'package:booba2/helpers/lulz_imports.dart';
+import 'package:booba2/services/storage/storage_controller.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:get/get.dart';
 
 class DatabaseController {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
@@ -27,27 +28,27 @@ class DatabaseController {
     required Uint8List profilePicture,
   }) async {
     /// handling null values
-    ///- I don't like setting default values in the parameters :D
+    /// I don't like setting default values in the parameters :D
     status ??= '';
 
     try {
-      String profilePictureDownloadUrl =
-          await LulzStorage.upload(childName: _posts, file: profilePicture);
+      String profilePictureDownloadUrl = await StorageController.upload(
+          childName: _profilePicture, file: profilePicture);
 
       await _firestore.collection(_usersCollection).doc(userId).set({
         _email: email,
         _password: password,
         _username: username,
         _status: status,
-        _profilePicture:
-            profilePictureDownloadUrl 
+        _profilePicture: profilePictureDownloadUrl
       });
+
+      Get.snackbar('Upload successful!', '');
     } catch (e) {
-      dev.log(
-        'error adding user to Firestore',
-        name: _className,
-        error: e.toString(),
-      );
+      LulzHelpers.handleError(
+          snackbarTitle: 'error uploading image',
+          error: e.toString(),
+          name: _className);
     }
   }
 }

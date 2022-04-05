@@ -30,7 +30,11 @@ class LulzHelpers {
   static Future<Uint8List?> selectImage(ImageSource source) async {
     try {
       /// TODO (maybe) specifiy a lower [imageQuality] to compress the images before uploading to the cloud
-      XFile? image = await ImagePicker().pickImage(source: source);
+      late ImageSource imageSource;
+      await Get.bottomSheet(MImageSourceBottomSheet(
+        onItemSelected: (source) => imageSource = source,
+      ));
+      XFile? image = await ImagePicker().pickImage(source: imageSource);
       const String errorMessage = 'No image selected';
       if (image == null) {
         handleError(

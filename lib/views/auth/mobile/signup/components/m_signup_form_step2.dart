@@ -111,7 +111,6 @@ class _UserInfoState extends State<_UserInfo> {
       children: [
         /// Profile Picture
         InkWell(
-          /// TODO: add a dialog to select the [ImageSource]
           onTap: () async {
             _profilePicture =
                 await LulzHelpers.selectImage(ImageSource.gallery);

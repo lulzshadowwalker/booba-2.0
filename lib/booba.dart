@@ -14,7 +14,7 @@ class Booba extends StatelessWidget {
         home: MSignIn(),
         defaultTransition: Transition.circularReveal,
         transitionDuration: const Duration(milliseconds: 1000),
-      ), 
+      ),
     );
   }
 }

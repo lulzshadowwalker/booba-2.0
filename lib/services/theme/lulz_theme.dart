@@ -6,6 +6,19 @@ class LulzTheme {
   /// Dark Theme
   static ThemeData dark() {
     return ThemeData.dark().copyWith(
+      /// * Icon theme
+      iconTheme: IconThemeData(color: LulzColors.whiteText),
+
+      /// * Appbar theme
+      /// [color] property has been depricated and [backgroundColor] should be used instead
+      appBarTheme: AppBarTheme(
+        backgroundColor: LulzColors.backgroundDarkDimmed,
+        elevation: 0,
+        foregroundColor: LulzColors.whiteText,
+        titleTextStyle: LulzTextStyle.md?.copyWith(fontWeight: FontWeight.w500),
+        titleSpacing: 0,
+      ),
+
       /// * Text Selection
       textSelectionTheme: TextSelectionThemeData(
           cursorColor: LulzColors.accent3,
