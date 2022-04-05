@@ -30,7 +30,6 @@ class DatabaseController {
     /// handling null values
     /// I don't like setting default values in the parameters :D
     status ??= '';
-
     try {
       String profilePictureDownloadUrl = await StorageController.upload(
           childName: _profilePicture, file: profilePicture);
@@ -51,4 +50,10 @@ class DatabaseController {
           name: _className);
     }
   }
+
+  Future<void> updateUserData({
+    required String userId,
+    required Map<String, Object?> data,
+  }) async =>
+      await _firestore.collection(_usersCollection).doc(userId).update(data);
 }

@@ -15,6 +15,8 @@ class LulzTag extends StatelessWidget {
   ///  and allow colors within only withing a certain range
   final Color? _color;
   final String _text;
+
+  String get getText => _text;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -29,7 +31,7 @@ class LulzTag extends StatelessWidget {
         child: Padding(
             padding:
                 const EdgeInsets.symmetric(vertical: 5.0, horizontal: 12.0),
-            child: Text('#${_text.toLowerCase()}',
+            child: Text(_text.toLowerCase(),
                 style: LulzTextStyle.md?.copyWith(color: _color))));
   }
 }

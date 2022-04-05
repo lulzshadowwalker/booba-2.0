@@ -26,6 +26,7 @@ I'm still not settled on a certain folder structure, I will also be learning oth
   > I'm not sure if they fixed this, but obviously it can be a pebrformance drain because stuff in other pages that are not currently in use don't lose focus e.g. a [TextField] would still recieve input and animations would still be running. But again, this may or may not have been fixed. [Github-Issue](https://github.com/flutter/flutter/issues/61659)
   - [color] property has been depricated and [backgroundColor] should be used instead
   - `Get.back()` doesn't throw any errors or weird behaviors if there is no previous page in the stack, not sure how the built-in navigation would behave in that case, might have to try.
+  - When updating the value of a firestore list, to preserve the original data, `FieldValue.arrayUnion` can be used.
 # GetX
 
 GetX is a state management solution, it also offers navigation methods that avoid the redundant boilerplate code of the built-in navigation system in flutter

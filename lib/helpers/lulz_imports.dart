@@ -3,6 +3,7 @@ import 'dart:math' as math;
 import 'dart:typed_data';
 
 import 'package:booba2/views/add_post_details/mobile/m_addpostdetails.dart';
+import 'package:booba2/views/feed/mobile/m_feed.dart';
 import 'package:booba2/views/imagesource_bottomsheet/mobile/m_imagesource_bottomsheet.dart';
 import 'package:booba2/services/auth/auth_controller.dart';
 import 'package:booba2/views/auth/desktop/signin/components/d_signin_form.dart';

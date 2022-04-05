@@ -15,7 +15,7 @@ class LulzTheme {
         backgroundColor: LulzColors.backgroundDarkDimmed,
         elevation: 0,
         foregroundColor: LulzColors.whiteText,
-        titleTextStyle: LulzTextStyle.md?.copyWith(fontWeight: FontWeight.w500),
+        titleTextStyle: LulzTextStyle.md?.copyWith(fontWeight: FontWeight.w300),
         titleSpacing: 0,
       ),
 
