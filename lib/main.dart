@@ -1,10 +1,9 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import './LOCAL.dart';
 import './helpers/lulz_imports.dart';
-
+        
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
@@ -14,5 +13,4 @@ void main() async {
       : await Firebase.initializeApp();
 
   runApp(const Booba());
-
 }

@@ -9,6 +9,7 @@ class LulzElevatedButton extends StatelessWidget {
     Key? key,
     required String text,
     Color? textColor,
+    Color? backgroundColor,
     Size? maxSize,
     required VoidCallback onPressed,
     required double textWidth,
@@ -16,11 +17,13 @@ class LulzElevatedButton extends StatelessWidget {
         _onPressed = onPressed,
         _textColor = textColor,
         _textWidth = textWidth,
+        _backgroundColor = backgroundColor,
         super(key: key);
 
   final String _text;
   final VoidCallback _onPressed;
   final Color? _textColor;
+  final Color? _backgroundColor;
   final double _textWidth;
 
   @override
@@ -36,7 +39,8 @@ class LulzElevatedButton extends StatelessWidget {
           fontWeight: FontWeight.w900,
         ),
       ),
-      style: ElevatedButton.styleFrom(fixedSize: Size.fromHeight(41.h)),
+      style: ElevatedButton.styleFrom(
+          fixedSize: Size.fromHeight(41.h), primary: _backgroundColor, ),
     );
   }
 }

@@ -93,5 +93,6 @@ class AuthController extends GetxController {
     });
   }
 
-  static User? get currentUser => _auth.currentUser;
+   User? get getUser => _auth.currentUser;
+   static User? get currentUser => _auth.currentUser;
 }///  END AUTH_CONTROLLER

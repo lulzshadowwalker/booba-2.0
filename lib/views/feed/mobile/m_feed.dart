@@ -20,13 +20,14 @@ class MFeed extends StatelessWidget {
     );
   }
 
-  final String _posts = 'posts';
   Future<void> _uploadPost() async {
     _file = await LulzHelpers.selectImage(ImageSource.gallery);
-    await Get.to(() => MAddPostDetails());
+    if (_file == null) {
+      return;
+    }
+    await Get.to(() => MAddPostDetails(
+          file: _file!,
+        ));
 
-    /// I don't want to [assert] or null check because passing a null is handled in the [LulzStorage.upload] function
-    /// TODO this should be done in the [MAddPostDetails] 
-    await StorageController.upload(childName: _posts, file: _file!);
   }
 }

@@ -1,5 +1,6 @@
 import 'package:booba2/views/shared/lulz_shared.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:line_icons/line_icons.dart';
 
@@ -11,13 +12,13 @@ class AddPostDetailsAppBar extends StatelessWidget
 
   @override
   Widget build(BuildContext context) {
+    /// I don't want a generic purposes custom app bar
     return AppBar(
       leading: IconButton(
           onPressed: () => Get.back(), icon: const Icon(LineIcons.angleLeft)),
       centerTitle: false,
-
-      /// TODO change textwidth base on the design file
-      title: const LulzText(text: 'New post', textWidth: 80),
+      title: LulzText(text: 'Upload post', textWidth: 102.w),
+      elevation: 8,
     );
   }
 
