@@ -8,15 +8,18 @@ class LulzText extends StatelessWidget {
     required double textWidth,
     TextStyle? style,
     EdgeInsetsGeometry? margin,
+    TextAlign? textAlign,
   })  : _text = text,
         _textWidth = textWidth,
         _style = style,
         _margin = margin,
+        _textAlign = textAlign,
         super(key: key);
   final String _text;
   final TextStyle? _style;
   final double _textWidth;
   final EdgeInsetsGeometry? _margin;
+  final TextAlign? _textAlign;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -24,6 +27,10 @@ class LulzText extends StatelessWidget {
         margin: _margin,
         child: FittedBox(
             alignment: Alignment.centerLeft,
-            child: Text(_text, style: _style)));
+            child: Text(
+              _text,
+              style: _style,
+              textAlign: _textAlign,
+            )));
   }
 }

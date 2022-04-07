@@ -18,6 +18,7 @@ class LulzElevatedButton extends StatelessWidget {
         _textColor = textColor,
         _textWidth = textWidth,
         _backgroundColor = backgroundColor,
+        _maxSize = maxSize,
         super(key: key);
 
   final String _text;
@@ -25,6 +26,7 @@ class LulzElevatedButton extends StatelessWidget {
   final Color? _textColor;
   final Color? _backgroundColor;
   final double _textWidth;
+  final Size? _maxSize;
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +42,10 @@ class LulzElevatedButton extends StatelessWidget {
         ),
       ),
       style: ElevatedButton.styleFrom(
-          fixedSize: Size.fromHeight(41.h), primary: _backgroundColor, ),
+        /// why doesnt this fucking thing just work fucking hell, (im 100% sure it's not my fault 🙄 Kappa  )
+        fixedSize: _maxSize ?? Size.fromHeight(41.h),
+        primary: _backgroundColor,
+      ),
     );
   }
 }

@@ -26,4 +26,7 @@ class LulzConst {
   static final double mFormFieldMaxWidth = 296.w;
 
   static final double dButtonMaxHeight = 55.h;
+
+  /// GET STORAGE KEYS
+  static const String isFirstLaunch = 'isFirstLaunch';
 }

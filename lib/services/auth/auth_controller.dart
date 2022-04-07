@@ -23,9 +23,9 @@ class AuthController extends GetxController {
   static const String _className = 'AuthController';
 
   @override
-  void onReady() {
+  void onInit() {
     /// [onReady] happens one frame after allocating the object in the memory aka [onInit]
-    super.onReady();
+    super.onInit();
 
     _firebaseUser.bindStream(_auth.authStateChanges());
 
@@ -93,6 +93,6 @@ class AuthController extends GetxController {
     });
   }
 
-   User? get getUser => _auth.currentUser;
-   static User? get currentUser => _auth.currentUser;
+  User? get getUser => _auth.currentUser;
+  static User? get currentUser => _auth.currentUser;
 }///  END AUTH_CONTROLLER

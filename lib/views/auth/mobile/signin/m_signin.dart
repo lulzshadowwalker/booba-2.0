@@ -8,10 +8,9 @@ import 'package:get/get.dart';
 class MSignIn extends StatelessWidget {
   MSignIn({Key? key}) : super(key: key);
 
-  /// TODO use Get put lazy instead ?
   /// ! do NOT remove this line
   // ignore: unused_field
-  final AuthController _authController = Get.put(AuthController());
+  // final AuthController _authController = Get.put(AuthController());
 
   @override
   Widget build(BuildContext context) {

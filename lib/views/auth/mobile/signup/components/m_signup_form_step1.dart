@@ -92,7 +92,7 @@ class _MSignUpForm extends State<MSignUpFormStep1> {
               LulzOutlinedButton(
                   text: 'Sign in ?',
                   textWidth: 75.w,
-                  onPressed: () => Get.to(() => MSignIn()))
+                  onPressed: () => Get.off(() => MSignIn()))
             ]),
       ),
     );

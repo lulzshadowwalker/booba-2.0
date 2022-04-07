@@ -58,7 +58,7 @@ class _MAddPostDetailsState extends State<MAddPostDetails> {
             LulzFormField(
               controller: _titleController,
               hintText: 'Tell us more..',
-              onChanged: _onEditingComplete,
+              onEditingComplete: _onEditingComplete,
               maxLines: 2,
               color: LulzColors.accent2,
             ),

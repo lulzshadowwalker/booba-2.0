@@ -24,6 +24,11 @@ class LulzColors {
   static Color green = colorFromHex('#80FA46');
   static Color greenTransparent = green.withOpacity(0.1);
   static Color whiteTransparent = colorFromHex('#EBEAF0').withOpacity(0.35);
-
   static Color blue = colorFromHex('#00495C');
+  
+  static const LinearGradient gradient1 = LinearGradient(
+    colors: [Color(0xfff87171), Color(0xffb00b69)],
+    begin: Alignment.bottomCenter,
+    end: Alignment.topCenter,
+  );
 }

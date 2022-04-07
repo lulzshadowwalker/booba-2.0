@@ -13,7 +13,7 @@ class LulzFormField extends StatelessWidget {
     bool? obscureText,
     GlobalKey? formFieldKey,
     String? Function(String? input)? validator,
-    Function(String value)? onChanged,
+    VoidCallback? onEditingComplete,
     int? maxLines,
     Color? color,
   })  : _controller = controller,
@@ -24,7 +24,7 @@ class LulzFormField extends StatelessWidget {
         _obscureText = obscureText,
         _validator = validator,
         _formFieldKey = formFieldKey,
-        _onChanged = onChanged,
+        _onEditingComplete = onEditingComplete,
         _maxLines = maxLines,
         _color = color ?? LulzColors.accent3,
         super(key: key);
@@ -37,7 +37,7 @@ class LulzFormField extends StatelessWidget {
   final bool? _obscureText;
   final String? Function(String? input)? _validator;
   final GlobalKey? _formFieldKey;
-  final Function(String value)? _onChanged;
+  final VoidCallback? _onEditingComplete;
   final int? _maxLines;
   final Color _color;
 
@@ -58,7 +58,7 @@ class LulzFormField extends StatelessWidget {
       controller: _controller,
       keyboardType: _keyboardType,
       obscureText: _obscureText ?? false,
-      onChanged: _onChanged,
+      onEditingComplete: _onEditingComplete,
 
       /// decoration
       decoration: InputDecoration(

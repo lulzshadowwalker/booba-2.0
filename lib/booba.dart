@@ -11,7 +11,7 @@ class Booba extends StatelessWidget {
         title: 'BOOBA-v2',
         debugShowCheckedModeBanner: false,
         theme: LulzTheme.dark(),
-        home: MSignIn(),
+        home: const Splash(),
         defaultTransition: Transition.circularReveal,
         transitionDuration: const Duration(milliseconds: 1000),
       ),

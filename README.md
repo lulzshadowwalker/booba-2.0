@@ -36,7 +36,9 @@ I'm still not settled on a certain folder structure, I will also be learning oth
 
 - When updating the value of a firestore list, to preserve the original data, `FieldValue.arrayUnion` can be used.
 
-# As-You-Type Formatting
+- `ShaderMask` [Widget of the week](https://youtu.be/7sUL66pTQ7Q), [Stackoverflow](https://stackoverflow.com/questions/51686868/gradient-text-in-flutter)
+
+## As-You-Type Formatting
 
 > [Format as You Type - Input Formatting in Flutter - YouTube](https://youtu.be/4v4l6E8Sbj8)
 > 
@@ -53,11 +55,14 @@ I'm still not settled on a certain folder structure, I will also be learning oth
 - Build one yourself
   
   - Custom class that extends `TextInputFormatter` and implements the `formatEditUpdate` method
+  <!-- TODO continue writing about this -->
 
 # GetX
 
 GetX is a state management solution, it also offers navigation methods that avoid the redundant boilerplate code of the built-in navigation system in flutter
 
+> [Get life cycle](https://bit.ly/3r8WQNS)
+> [really good insight about dependency injection in GetX](https://bit.ly/3jbhU1E)
 ## Navigation
 
 > `GetX-Implementation`
@@ -245,6 +250,13 @@ e.g. `Get.changeTheme(ThemeData.light);`
 
 ### Environment Information! 🌟
 
+instead of importing `dart:io show Platform` you can simply check for platform e.g. `GetPlatform.isIOS` 
+
+> ? Check to see if checking e.g. `GetPlatform.isIOS` crash the app on a web platform just like `Platform.isIOS` does
+
+Instead of using `MediaQuery.of(context).size.height` to get the current height of the screen, you can simply use `Get.height` 
+
+YEP :D 
 instead of importing `dart:io show Platform` you can simply check for platform e.g. `GetPlatform.isIOS` 
 
 > ? Check to see if checking e.g. `GetPlatform.isIOS` crash the app on a web platform just like `Platform.isIOS` does
