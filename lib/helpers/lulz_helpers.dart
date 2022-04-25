@@ -50,4 +50,8 @@ class LulzHelpers {
       return null;
     }
   }
+
+  static double degToRad(double deg) {
+    return deg * math.pi / 180;
+  }
 }

@@ -9,8 +9,8 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   /// init GetStorage
-  /// simple key:value storage 
-  await GetStorage.init();   
+  /// simple key:value storage
+  await GetStorage.init();
 
   /// init firebase
   GetPlatform.isWeb

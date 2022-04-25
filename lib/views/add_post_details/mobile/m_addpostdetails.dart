@@ -7,6 +7,8 @@ import 'package:booba2/services/storage/storage_controller.dart';
 import 'package:booba2/views/add_post_details/components/lulz_tag.dart';
 import 'package:booba2/views/add_post_details/mobile/components/m_addpostdetails_appbar.dart';
 import 'package:booba2/views/add_post_details/mobile/controllers/tags_controller.dart';
+import 'package:booba2/views/feed/mobile/m_feed.dart';
+import 'package:booba2/views/home/mobile/m_home.dart';
 import 'package:booba2/views/shared/lulz_elevatedbutton/lulz_elevatedbutton.dart';
 import 'package:booba2/views/shared/lulz_formfield/lulz_formfield.dart';
 import 'package:booba2/views/shared/lulz_imagecard.dart/lulz_imagecard.dart';
@@ -92,6 +94,7 @@ class _MAddPostDetailsState extends State<MAddPostDetails> {
   }
 
   void _onEditingComplete() {
+    /// TODO replace this with RegEx 🙃
     final String text = _titleController.text;
     String tag;
     int startIndex = 0, endIndex = 0;
@@ -115,16 +118,14 @@ class _MAddPostDetailsState extends State<MAddPostDetails> {
 
   Future<void> _publish() async {
     try {
-      String? userId = Get.find<AuthController>().getUser!.uid;
-      String downloadUrl =
+      await DatabaseController().addPost(
+        title: _titleController.text.trim(),
+        file: widget._file,
+      );
 
-          /// TODO Lazy put
-          await StorageController.upload(childName: _posts, file: widget._file);
-
-      await DatabaseController().updateUserData(userId: userId, data: {
-        /// TODO This should return the postId!
-        'posts': FieldValue.arrayUnion([downloadUrl])
-      });
+      /// if anything goes wrong, it's not gonna pop
+      // [Get.back()] sometimes works and sometimes doesn't, found similar issues online but can't find a solouting ( same thing if I use [Navigator])
+      Get.off(() => const MHome());
     } catch (e) {
       LulzHelpers.handleError(
           snackbarTitle: 'error uploading post!',

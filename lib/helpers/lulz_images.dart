@@ -8,4 +8,5 @@ class LulzImages {
   static const String girlChatting = 'assets/images/girl-chatting.png';
   static const String heart = 'assets/images/heart.png';
   static const String secureImage = 'assets/images/secure-image.png';
+  static const String bongoTap = 'assets/images/bongoTap.gif';
 }

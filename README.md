@@ -1,6 +1,6 @@
 # booba 2.0
 
-This project is meant as a learning experience, and not for production by any means. However, it is open-source so feel free to use it however you like.
+This project is meant as a learning experience, and not for production by any means.
 
 I'm still not settled on a certain folder structure, I will also be learning other stuff as I work on this project so if I learn something new I may or may not replace a previous approach or simply just start using the new approach from that point onwards, and that might cause some inconsistencies in the code, but for now it's okay.
 

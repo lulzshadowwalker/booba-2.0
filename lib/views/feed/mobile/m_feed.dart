@@ -1,7 +1,6 @@
 import 'dart:typed_data';
 
 import 'package:booba2/helpers/lulz_imports.dart';
-import 'package:booba2/services/storage/storage_controller.dart';
 import 'package:booba2/views/add_post_details/mobile/m_addpostdetails.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -13,10 +12,12 @@ class MFeed extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     /// no need for [Scaffold], it's used within [MHome]
-    return FloatingActionButton(
+    return
+    //  TestFeed();
+
+    FloatingActionButton(
       onPressed: _uploadPost,
       child: const Icon(Icons.add),
-      // color /// TODO Different colors
     );
   }
 
@@ -25,9 +26,6 @@ class MFeed extends StatelessWidget {
     if (_file == null) {
       return;
     }
-    await Get.to(() => MAddPostDetails(
-          file: _file!,
-        ));
-
+    Get.to(() => MAddPostDetails(file: _file!));
   }
 }

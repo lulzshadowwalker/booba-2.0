@@ -13,10 +13,10 @@ class MHome extends StatefulWidget {
 }
 
 class _MHomeState extends State<MHome> {
-  int _selectedIndex = 0;
+  int _selectedIndex = 1;
   final List<Widget> _pages = [
-    MFeed(),
     const Text('💬 Chat'),
+    MFeed(),
     TextButton(
       child: const Text('🚪 Sign out'),
       onPressed: () => Get.find<AuthController>().signOut(),

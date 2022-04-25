@@ -1,5 +1,6 @@
 import 'dart:typed_data';
 
+import 'package:booba2/services/database/controllers/current_user_controller.dart';
 import 'package:booba2/services/database/database_controller.dart';
 import 'package:booba2/views/auth/mobile/signin/m_signin.dart';
 import 'package:booba2/views/home/mobile/m_home.dart';
@@ -27,6 +28,7 @@ class AuthController extends GetxController {
     /// [onReady] happens one frame after allocating the object in the memory aka [onInit]
     super.onInit();
 
+    /// Wrapper
     _firebaseUser.bindStream(_auth.authStateChanges());
 
     /// Show suitable screen depending on the auth status
@@ -52,6 +54,7 @@ class AuthController extends GetxController {
     });
   }
 
+  /// TODO: Better Utilization of GetX StateManagement; no need for passing arugments
   void signUp({
     required String email,
     required String password,
@@ -95,4 +98,8 @@ class AuthController extends GetxController {
 
   User? get getUser => _auth.currentUser;
   static User? get currentUser => _auth.currentUser;
-}///  END AUTH_CONTROLLER
+
+  final Rx<LulzUser> _currentUserData = LulzUser.empty().obs;
+}
+
+///  END AUTH_CONTROLLER

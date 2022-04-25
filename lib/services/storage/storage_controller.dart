@@ -19,20 +19,11 @@ class StorageController {
 
       final String fileId = const Uuid().v4();
 
-      // Reference reference =
-      //     _firebaseStorage.ref().child(userId!).child(childName).child(fileId);
-
-      /// ! REMOVE THIS, TESTING PURPOSES
-      Reference reference = _firebaseStorage
-          .ref()
-          .child('asldkadkas')
-          .child(childName)
-          .child(fileId);
+      Reference reference =
+          _firebaseStorage.ref().child(userId!).child(childName).child(fileId);
 
       TaskSnapshot snapshot = await reference.putData(file);
 
-      /// TODO add this post to firestore users/posts collections
-      ///  return [downloadUrl] and [postId]
       final String downloadUrl = await snapshot.ref.getDownloadURL();
       Get.snackbar('Upload successful!', '');
       return downloadUrl;

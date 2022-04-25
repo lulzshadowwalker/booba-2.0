@@ -14,12 +14,15 @@ import 'package:booba2/views/auth/mobile/signin/m_signin.dart';
 import 'package:booba2/views/auth/mobile/signup/m_signup.dart';
 import 'package:booba2/views/home/mobile/m_home.dart';
 import 'package:booba2/views/landing_page/landing_page.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:image_picker/image_picker.dart';
+
+import '../services/database/controllers/current_user_controller.dart';
 
 part './lulz_const.dart';
 
@@ -42,5 +45,8 @@ part '../views/responsive/responsive_home.dart';
 part '../views/responsive/responsive_signin.dart';
 part '../views/responsive/responsive_signup.dart';
 part '../views/splash/splash.dart';
+
 /// Models
 part '../views/landing_page/models/landing_page_model.dart';
+part '../services/database/models/lulz_user.dart';
+part '../services/database/models/lulz_post.dart';

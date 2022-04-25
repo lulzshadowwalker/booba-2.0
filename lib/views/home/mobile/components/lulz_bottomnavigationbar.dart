@@ -47,17 +47,17 @@ class _LulzBottomNavigationBarState extends State<LulzBottomNavigationBar> {
   }
 
   /// [_selectedIndex] to select the proper color from the [_colors] list
-  int _selectedIndex = 0;
+  int _selectedIndex = 1;
 
   final List<Color> _colors = [
     /// Chat tab
-    LulzColors.accent4,
+    LulzColors.green,
 
     /// Feed tab
-    LulzColors.accent2,
+    LulzColors.accent4,
 
     /// Settings tab
-    LulzColors.green
+    LulzColors.accent2,
   ];
 
   void _onTabChange(int selectedIndex) {

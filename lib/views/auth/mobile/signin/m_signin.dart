@@ -6,12 +6,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 class MSignIn extends StatelessWidget {
-  MSignIn({Key? key}) : super(key: key);
-
-  /// ! do NOT remove this line
-  // ignore: unused_field
-  // final AuthController _authController = Get.put(AuthController());
-
+  const MSignIn({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(

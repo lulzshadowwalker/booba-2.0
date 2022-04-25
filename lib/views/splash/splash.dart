@@ -14,6 +14,9 @@ class _SplashState extends State<Splash> {
     Timer(
       const Duration(milliseconds: 2500),
       () {
+        /// ! TODO remove this
+        Get.put(CurrentUserContorller());
+
         GetStorage storage = GetStorage();
 
         /// we only set it to false when navigating to [MLandingPage] otherwise it's null
@@ -31,16 +34,23 @@ class _SplashState extends State<Splash> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: LulzColors.whiteCatDraw,
-      body: RotatedBox(
-        quarterTurns: 2,
-        child: Image.asset(
-          LulzImages.catDraw,
-          filterQuality: FilterQuality.high,
-          scale: 1.6,
-          alignment: Alignment.bottomCenter,
-          height: 1.sh,
-        ),
+      backgroundColor: LulzColors.bongoTapWhite,
+
+      /// I can use a [Positioned] widget here, but no I like this
+      body: Center(
+        child: Column(children: [
+          const Spacer(),
+          Transform.rotate(
+            /// radians
+            angle: -LulzHelpers.degToRad(13.5),
+            child: Image.asset(
+              LulzImages.bongoTap,
+              height: 234.h,
+              width: 230.h,
+            ),
+          ),
+          const Spacer(),
+        ]),
       ),
     );
   }
