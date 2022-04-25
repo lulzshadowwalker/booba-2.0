@@ -87,7 +87,11 @@ class _MSignInFormState extends State<MSignInForm> {
           LulzOutlinedButton(
               text: 'Sign up ?',
               textWidth: 75.w,
-              onPressed: () => Get.off(() => const MSignUp()))
+              onPressed: () {
+                /// might as well make this a member function
+                Get.find<AuthController>().resetUserData();
+                Get.off(() => const MSignUp());
+              })
         ]),
       ),
     );
@@ -95,8 +99,10 @@ class _MSignInFormState extends State<MSignInForm> {
 
   void _signIn() {
     if (_formKey.currentState!.validate()) {
-      Get.find<AuthController>()
-          .signIn(_emailController.text.trim(), _passwordController.text);
+      AuthController _authController = Get.find<AuthController>();
+      _authController.userEmail = _emailController.text.trim();
+      _authController.userPassword = _passwordController.text.trim();
+      _authController.signIn();
     }
   }
 }

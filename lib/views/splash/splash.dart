@@ -14,9 +14,6 @@ class _SplashState extends State<Splash> {
     Timer(
       const Duration(milliseconds: 2500),
       () {
-        /// ! TODO remove this
-        Get.put(CurrentUserContorller());
-
         GetStorage storage = GetStorage();
 
         /// we only set it to false when navigating to [MLandingPage] otherwise it's null
@@ -27,6 +24,7 @@ class _SplashState extends State<Splash> {
         isFirstLaunch == null
             ? Get.off(() => MLandingPage())
             : Get.put(AuthController(), permanent: true);
+
       },
     );
   }

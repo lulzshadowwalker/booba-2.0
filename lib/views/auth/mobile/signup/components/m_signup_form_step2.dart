@@ -1,6 +1,7 @@
 /// ! when implementing web, refactor this as it's pretty similar to [DSignUpFormStep2]
 import 'dart:typed_data';
 
+import 'package:booba2/helpers/controllers/image_controller.dart';
 import 'package:booba2/helpers/lulz_imports.dart';
 import 'package:booba2/services/auth/auth_controller.dart';
 import 'package:booba2/views/shared/lulz_shared.dart';
@@ -12,13 +13,8 @@ import 'package:image_picker/image_picker.dart';
 class MSignUpFormStep2 extends StatelessWidget {
   const MSignUpFormStep2({
     Key? key,
-    required String email,
-    required String password,
-  })  : _password = password,
-        _email = email,
-        super(key: key);
-  final String _email;
-  final String _password;
+  }) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -60,10 +56,7 @@ class MSignUpFormStep2 extends StatelessWidget {
                     ),
 
                     /// add profile picture / _usernameController.text.trim() ;section
-                    _UserInfo(
-                      email: _email,
-                      password: _password,
-                    ),
+                    _UserInfo(),
                     Container(),
                   ],
                 ),
@@ -79,16 +72,9 @@ class MSignUpFormStep2 extends StatelessWidget {
 class _UserInfo extends StatefulWidget {
   const _UserInfo({
     Key? key,
-    required String email,
-    required String password,
-  })  : _email = email,
-        _password = password,
-        super(key: key);
+  }) : super(key: key);
 
   static const double _profilePicSize = 128.0;
-
-  final String _email;
-  final String _password;
 
   @override
   State<_UserInfo> createState() => _UserInfoState();
@@ -110,27 +96,29 @@ class _UserInfoState extends State<_UserInfo> {
     return Column(
       children: [
         /// Profile Picture
-        InkWell(
-          onTap: () async {
-            _profilePicture =
-                await LulzHelpers.selectImage(ImageSource.gallery);
+        GetBuilder(
+          init: ImageController(),
+          builder: (ImageController imageController) => InkWell(
+            onTap: () async {
+              _profilePicture =
+                  await LulzHelpers.selectImage(ImageSource.gallery);
 
-            /// TODO Get observable
-            setState(() {});
-          },
-          child: Container(
-            height: _UserInfo._profilePicSize,
-            width: _UserInfo._profilePicSize,
-            decoration: BoxDecoration(
-                color: LulzColors.blue,
-                borderRadius: BorderRadius.circular(5.0),
-                image: DecorationImage(
-                  image: _profilePicture == null
-                      ? const AssetImage(LulzImages.aww)
-                      : Image.memory(_profilePicture!).image,
-                  fit: BoxFit.cover,
-                  filterQuality: FilterQuality.high,
-                )),
+              imageController.setImage = _profilePicture;
+            },
+            child: Container(
+              height: _UserInfo._profilePicSize,
+              width: _UserInfo._profilePicSize,
+              decoration: BoxDecoration(
+                  color: LulzColors.blue,
+                  borderRadius: BorderRadius.circular(5.0),
+                  image: DecorationImage(
+                    image: imageController.getImage == null
+                        ? const AssetImage(LulzImages.aww)
+                        : Image.memory(imageController.getImage!).image,
+                    fit: BoxFit.cover,
+                    filterQuality: FilterQuality.high,
+                  )),
+            ),
           ),
         ),
         30.verticalSpace,
@@ -159,12 +147,14 @@ class _UserInfoState extends State<_UserInfo> {
 
   void _signUp() {
     /// TODO add a random default profile picutre or avatar NOTED
-    if (_usernameKey.currentState!.validate() && _profilePicture != null) {
-      Get.find<AuthController>().signUp(
-        email: widget._email,
-        password: widget._password,
-        username: _usernameController.text.trim(),
-        profilePicture: _profilePicture!,
+    assert(_usernameKey.currentState!.validate() && _profilePicture != null);
+    {
+      AuthController _authController = Get.find<AuthController>();
+      _authController.userUsername = _usernameController.text.trim();
+      _authController.userProfilePicture = _profilePicture!;
+      _authController.signUp(
+  
+
       );
     }
   }

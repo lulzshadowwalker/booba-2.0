@@ -1,5 +1,4 @@
 import 'package:booba2/helpers/lulz_imports.dart';
-import 'package:booba2/services/auth/auth_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -33,11 +32,11 @@ class DSignInForm extends StatelessWidget {
                   textColor: LulzColors.backgroundDark,
                   textWidth: 90.w,
                   onPressed: () {
-                    if (_formKey.currentState!.validate()) {
-                      Get.find<AuthController>().signIn(
-                          _emailController.text.trim(),
-                          _passwordController.text);
-                    }
+                    // if (_formKey.currentState!.validate()) {
+                    //   Get.find<AuthController>().signIn(
+                    //       _emailController.text.trim(),
+                    //       _passwordController.text);
+                    // }
 
                     _emailController.clear();
                     _passwordController.clear();

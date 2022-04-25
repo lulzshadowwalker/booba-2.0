@@ -1,10 +1,10 @@
 import 'package:booba2/helpers/lulz_imports.dart';
+import 'package:booba2/services/auth/auth_controller.dart';
 import 'package:booba2/views/auth/mobile/signin/m_signin.dart';
 import 'package:booba2/views/auth/mobile/signup/components/m_signup_form_step2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-
 
 import '../../../../shared/lulz_shared.dart';
 
@@ -92,7 +92,10 @@ class _MSignUpForm extends State<MSignUpFormStep1> {
               LulzOutlinedButton(
                   text: 'Sign in ?',
                   textWidth: 75.w,
-                  onPressed: () => Get.off(() => MSignIn()))
+                  onPressed: () {
+                    Get.find<AuthController>().resetUserData();
+                    Get.off(() => const MSignIn());
+                  })
             ]),
       ),
     );
@@ -100,9 +103,12 @@ class _MSignUpForm extends State<MSignUpFormStep1> {
 
   void _step2() {
     if (_formKey.currentState!.validate()) {
-      Get.to(() => MSignUpFormStep2(
-          email: _emailController.text.trim(),
-          password: _passwordController.text));
+      AuthController _authController = Get.find<AuthController>();
+      _authController.userEmail = _emailController.text.trim();
+
+      /// TODO: Better to use as-you-type textformatting instead of trimming
+      _authController.userPassword = _passwordController.text.trim();
+      Get.to(() => MSignUpFormStep2());
     }
   }
 }

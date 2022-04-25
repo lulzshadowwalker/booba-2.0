@@ -1,18 +1,14 @@
 import 'dart:typed_data';
 
 import 'package:booba2/helpers/lulz_imports.dart';
-import 'package:booba2/services/auth/auth_controller.dart';
 import 'package:booba2/services/database/database_controller.dart';
-import 'package:booba2/services/storage/storage_controller.dart';
 import 'package:booba2/views/add_post_details/components/lulz_tag.dart';
 import 'package:booba2/views/add_post_details/mobile/components/m_addpostdetails_appbar.dart';
 import 'package:booba2/views/add_post_details/mobile/controllers/tags_controller.dart';
-import 'package:booba2/views/feed/mobile/m_feed.dart';
 import 'package:booba2/views/home/mobile/m_home.dart';
 import 'package:booba2/views/shared/lulz_elevatedbutton/lulz_elevatedbutton.dart';
 import 'package:booba2/views/shared/lulz_formfield/lulz_formfield.dart';
 import 'package:booba2/views/shared/lulz_imagecard.dart/lulz_imagecard.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -38,6 +34,7 @@ class _MAddPostDetailsState extends State<MAddPostDetails> {
     _titleController.dispose();
   }
 
+  // ignore: unused_field
   final String _posts = 'posts';
 
   @override

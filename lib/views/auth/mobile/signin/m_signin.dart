@@ -19,7 +19,7 @@ class MSignIn extends StatelessWidget {
               image: DecorationImage(
                   image: AssetImage(LulzImages.patternBase),
                   repeat: ImageRepeat.repeat)),
-          child: Column(
+          child: Column(  
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               /// Kitties section

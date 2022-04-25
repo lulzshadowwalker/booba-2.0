@@ -1,6 +1,5 @@
 import 'dart:typed_data';
 
-import 'package:booba2/services/database/controllers/current_user_controller.dart';
 import 'package:booba2/services/database/database_controller.dart';
 import 'package:booba2/views/auth/mobile/signin/m_signin.dart';
 import 'package:booba2/views/home/mobile/m_home.dart';
@@ -39,14 +38,29 @@ class AuthController extends GetxController {
   /// function callback in the [ever] worker or event
   _setScreen(User? currentUser) {
     currentUser == null
-        ? Get.offAll(() => MSignIn())
+        ? Get.offAll(() => const MSignIn())
         : Get.offAll(() => const MHome());
   }
 
-  void signIn(String email, String password) async {
+  /// State management, instead of passing parameters all over the place
+  ///  ! make sure to reset those whenever navigating to other routes
+  LulzUser userData = LulzUser.empty();
+  set userEmail(String email) => userData.email = email;
+  set userPassword(String password) => userData.password = password;
+  set userUsername(String username) => userData.username = username;
+  set userProfilePicture(Uint8List profilePictureData) =>
+      userData.profilePictureData = profilePictureData;
+  void resetUserData() => userData = LulzUser.empty();
+
+  void signIn() async {
     /// [catchError] instead of a [try-catch] block, a little cleaner
     _auth
-        .signInWithEmailAndPassword(email: email, password: password)
+        .signInWithEmailAndPassword(
+          /// this is handled in the sign in form so I can use `!`, even if not
+          ///  I'd want to through an exception ofc
+          email: userData.email!,
+          password: userData.password!,
+        )
         .then((_) => Get.snackbar('Sign in successful!', ''))
         .catchError((error) {
       LulzHelpers.handleError(
@@ -54,15 +68,13 @@ class AuthController extends GetxController {
     });
   }
 
-  /// TODO: Better Utilization of GetX StateManagement; no need for passing arugments
-  void signUp({
-    required String email,
-    required String password,
-    required String username,
-    required Uint8List profilePicture,
-  }) async {
+  void signUp() async {
     _auth
-        .createUserWithEmailAndPassword(email: email, password: password)
+        .createUserWithEmailAndPassword(
+      /// this is anyway being handled in the sign up form
+      email: userData.email ?? '',
+      password: userData.password ?? '',
+    )
         .then((result) async {
       String? userId = result.user?.uid;
       if (userId == null) {
@@ -73,10 +85,13 @@ class AuthController extends GetxController {
 
       await _database.registerNewUser(
         userId: userId,
-        email: email,
-        password: password,
-        username: username,
-        profilePicture: profilePicture,
+
+        /// I dont wanna save anything if the value was null, even though is handled in
+        ///  the sign up form
+        email: userData.email!,
+        password: userData.password!,
+        username: userData.password!,
+        profilePicture: userData.profilePictureData!,
       );
 
       Get.snackbar('Sign up successful!', '');
@@ -99,7 +114,7 @@ class AuthController extends GetxController {
   User? get getUser => _auth.currentUser;
   static User? get currentUser => _auth.currentUser;
 
-  final Rx<LulzUser> _currentUserData = LulzUser.empty().obs;
-}
+  
 
-///  END AUTH_CONTROLLER
+  ///  END AUTH_CONTROLLER
+}

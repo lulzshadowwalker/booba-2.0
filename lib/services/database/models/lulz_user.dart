@@ -7,6 +7,11 @@ class LulzUser {
   String? status;
   String? username;
   String? userId;
+
+  /// [password] and [profilePictureData] is not to be stored in firestore, those are for statemanagement
+  String? password;
+  Uint8List? profilePictureData;
+
   // datetime
 
   /// TODO make all string constants centralized
@@ -29,4 +34,6 @@ class LulzUser {
     username = snapshot['username'];
     userId = snapshot['userId'];
   }
+
+  void test() {}
 }

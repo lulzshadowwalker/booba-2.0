@@ -55,7 +55,8 @@ I'm still not settled on a certain folder structure, I will also be learning oth
 - Build one yourself
   
   - Custom class that extends `TextInputFormatter` and implements the `formatEditUpdate` method
-  <!-- TODO continue writing about this -->
+    
+    <!-- TODO continue writing about this -->
 
 # GetX
 
@@ -63,6 +64,7 @@ GetX is a state management solution, it also offers navigation methods that avoi
 
 > [Get life cycle](https://bit.ly/3r8WQNS)
 > [really good insight about dependency injection in GetX](https://bit.ly/3jbhU1E)
+
 ## Navigation
 
 > `GetX-Implementation`
@@ -154,12 +156,14 @@ GetX is a state management solution, it also offers navigation methods that avoi
 > **"** note : If you want multiple instances of a single Controller class, you would be able to pass a unique tag parameter in `Get.put` or `Get.lazyPut` or in the GetBuilder or GetX widget to uniquely define the Controller and then in the child widgets or anywhere you want to find it use that unique tag to identify which one do you want. **"**[source](https://bit.ly/3uAM97O)
 >   ]
 
+> what `Get.lazyput` does differently, is that it won't instantiate and allocate the memory for the instance **until** you try to access it somewhere.
+
 ```dart
 /// example
 final CountController countController = Get.put(CountController());
 ```
 
-or alternatively, instead of initializing the controller yourself, you can do that within the `GetBuilder` and to refer to it later in the co de you can, simply use `Get.find<countController>.(increment())`
+or alternatively, instead of initializing the controller yourself, you can do that within the `GetBuilder` and to refer to it later in the code you can, simply use `Get.find<countController>.(increment())`
 
 > ? but what if we had multiple controllers of the same type
 
@@ -228,7 +232,7 @@ GetBuilder(
 
 ### Binding
 
-if you had some screen or widget where you inject some controller, you can simple make another class that extends `Bindings` and use `Get.lazyPut<SomeController>(() => SomeController());` within the `dependancies` method override to automatically inject it whenever the widget is built. now, to bind the binding that you've defined you have to bind it to the actual route ( assuming you're working with named routes ). /// "Bind bind bind bind" 🙃
+if you had some screen or widget where you inject some controller, you can simply make another class that extends `Bindings` and use `Get.lazyPut<SomeController>(() => SomeController());` within the `dependancies` method override to automatically inject it whenever the widget is built. now, to bind the binding that you've defined you have to bind it to the actual route ( assuming you're working with named routes ). /// "Bind bind bind bind" 🙃
 
 ### Validation! 🌟 /// no more LulzValidation 🤤
 

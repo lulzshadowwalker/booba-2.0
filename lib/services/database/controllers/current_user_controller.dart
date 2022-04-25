@@ -1,5 +1,4 @@
 import 'package:booba2/helpers/lulz_imports.dart';
-import 'package:booba2/services/auth/auth_controller.dart';
 import 'package:booba2/services/database/database_controller.dart';
 import 'package:get/get.dart';
 
