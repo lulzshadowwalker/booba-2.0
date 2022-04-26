@@ -1,5 +1,5 @@
-import 'package:booba2/helpers/lulz_imports.dart';
-import 'package:booba2/views/shared/lulz_text/lulz_text.dart';
+import '../../../helpers/lulz_imports.dart';
+import '../lulz_text/lulz_text.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

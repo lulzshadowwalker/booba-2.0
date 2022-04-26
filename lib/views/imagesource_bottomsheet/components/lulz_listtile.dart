@@ -1,4 +1,4 @@
-import 'package:booba2/views/shared/lulz_text/lulz_text.dart';
+import '../../shared/lulz_text/lulz_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

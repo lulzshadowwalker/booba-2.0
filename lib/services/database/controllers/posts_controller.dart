@@ -1,5 +1,5 @@
-import 'package:booba2/helpers/lulz_imports.dart';
-import 'package:booba2/services/database/database_controller.dart';
+import '../../../helpers/lulz_imports.dart';
+import '../database_controller.dart';
 import 'package:get/get.dart';
 
 class PostsController extends GetxController {

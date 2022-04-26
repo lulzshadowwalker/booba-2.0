@@ -1,9 +1,10 @@
-import 'package:booba2/helpers/lulz_imports.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class FeedCard extends StatelessWidget {
+import '../../../../helpers/lulz_imports.dart';
+
+class FeedCard extends StatefulWidget {
   const FeedCard({
     Key? key,
     required String imageUrl,
@@ -14,10 +15,17 @@ class FeedCard extends StatelessWidget {
         _profilePicture = profilePicture,
         super(key: key);
 
-  final double _width = 150;
   final String _imageUrl;
   final String _title;
   final String _profilePicture;
+
+  @override
+  State<FeedCard> createState() => _FeedCardState();
+}
+
+class _FeedCardState extends State<FeedCard> {
+  final double _width = 150;
+ 
 
   @override
   Widget build(BuildContext context) {
@@ -33,20 +41,20 @@ class FeedCard extends StatelessWidget {
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(40.r),
               image: DecorationImage(
-                image: CachedNetworkImageProvider(_imageUrl),
+                image: CachedNetworkImageProvider(widget._imageUrl),
                 fit: BoxFit.cover,
+                filterQuality: FilterQuality.medium,
               ),
             ),
           ),
 
           /// Title
-
           Padding(
-            padding: _title.isNotEmpty
+            padding: widget._title.isNotEmpty
                 ? EdgeInsets.only(top: 15.h, bottom: 15.h)
                 : EdgeInsets.zero,
             child: Text(
-              _title,
+              widget._title,
               style: LulzTextStyle.sm
                   ?.copyWith(fontSize: 12.sm, fontWeight: FontWeight.bold),
               maxLines: 2,
@@ -60,7 +68,8 @@ class FeedCard extends StatelessWidget {
               /// Profile picture
               CircleAvatar(
                 radius: 18.r,
-                backgroundImage: CachedNetworkImageProvider(_profilePicture),
+                backgroundImage:
+                    CachedNetworkImageProvider(widget._profilePicture),
               ),
 
               ShaderMask(
@@ -76,4 +85,6 @@ class FeedCard extends StatelessWidget {
       ),
     );
   }
+
+  
 }

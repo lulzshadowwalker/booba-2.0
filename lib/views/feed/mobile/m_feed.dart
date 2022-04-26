@@ -1,8 +1,8 @@
 import 'dart:typed_data';
 
-import 'package:booba2/helpers/lulz_imports.dart';
-import 'package:booba2/views/add_post_details/mobile/m_addpostdetails.dart';
-import 'package:booba2/views/feed/mobile/components/feed_card.dart';
+import '../../../helpers/lulz_imports.dart';
+import '../../add_post_details/mobile/m_addpostdetails.dart';
+import 'components/feed_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';

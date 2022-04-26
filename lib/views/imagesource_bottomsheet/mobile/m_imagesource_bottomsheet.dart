@@ -1,6 +1,6 @@
-import 'package:booba2/views/imagesource_bottomsheet/components/lulz_listtile.dart';
-import 'package:booba2/helpers/lulz_imports.dart';
-import 'package:booba2/views/shared/lulz_shared.dart';
+import '../components/lulz_listtile.dart';
+import '../../../helpers/lulz_imports.dart';
+import '../../shared/lulz_shared.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -23,19 +23,32 @@ class MImageSourceBottomSheet extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 300.h,
-      padding: const EdgeInsets.symmetric(vertical: 50.0, horizontal: 25.0),
+      padding: EdgeInsets.symmetric(horizontal: 25.0.w),
 
       /// decoration
       decoration: BoxDecoration(
         color: LulzColors.whiteText,
-        borderRadius: const BorderRadius.vertical(top: Radius.circular(25)),
+        borderRadius: BorderRadius.vertical(top: Radius.circular(50.r)),
       ),
 
       /// content
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          /// * Header text
+          /// handle 
+          Center(
+            child: Container(
+              margin: EdgeInsets.symmetric(vertical: 25.h),
+              decoration: BoxDecoration(
+                color: LulzColors.backgroundDarkDimmed,
+                borderRadius: BorderRadius.circular(50.r),
+              ),
+              width: 60.w,
+              height: 5.h,
+            ),
+          ),
+
+          /// * Heacer text
           LulzText(
               text: 'Upload Image',
               textWidth: 186,

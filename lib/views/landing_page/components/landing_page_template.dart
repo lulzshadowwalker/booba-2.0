@@ -1,6 +1,6 @@
-import 'package:booba2/helpers/lulz_imports.dart';
-import 'package:booba2/views/landing_page/components/page_indicator.dart';
-import 'package:booba2/views/shared/lulz_shared.dart';
+import '../../../helpers/lulz_imports.dart';
+import 'page_indicator.dart';
+import '../../shared/lulz_shared.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';

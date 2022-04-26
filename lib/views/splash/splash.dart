@@ -12,7 +12,7 @@ class _SplashState extends State<Splash> {
   void initState() {
     super.initState();
     Timer(
-      const Duration(milliseconds: 2500),
+      const Duration(milliseconds: 1500),
       () {
         GetStorage storage = GetStorage();
 
@@ -24,7 +24,6 @@ class _SplashState extends State<Splash> {
         isFirstLaunch == null
             ? Get.off(() => MLandingPage())
             : Get.put(AuthController(), permanent: true);
-
       },
     );
   }
@@ -32,21 +31,13 @@ class _SplashState extends State<Splash> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: LulzColors.bongoTapWhite,
+      backgroundColor: LulzColors.whiteText,
 
       /// I can use a [Positioned] widget here, but no I like this
       body: Center(
         child: Column(children: [
           const Spacer(),
-          Transform.rotate(
-            /// radians
-            angle: -LulzHelpers.degToRad(13.5),
-            child: Image.asset(
-              LulzImages.bongoTap,
-              height: 234.h,
-              width: 230.h,
-            ),
-          ),
+          Image.asset(LulzImages.bongoTap),
           const Spacer(),
         ]),
       ),

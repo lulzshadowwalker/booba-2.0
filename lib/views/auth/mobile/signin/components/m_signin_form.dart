@@ -1,6 +1,6 @@
-import 'package:booba2/helpers/lulz_imports.dart';
-import 'package:booba2/services/auth/auth_controller.dart';
-import 'package:booba2/views/auth/mobile/signup/m_signup.dart';
+import '../../../../../helpers/lulz_imports.dart';
+import '../../../../../services/auth/auth_controller.dart';
+import '../../signup/m_signup.dart';
 import 'package:get/get.dart';
 import '../../../../shared/lulz_shared.dart';
 import 'package:flutter/material.dart';

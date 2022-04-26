@@ -1,6 +1,7 @@
-import 'package:booba2/services/auth/auth_controller.dart';
-import 'package:booba2/views/feed/mobile/m_feed.dart';
-import 'package:booba2/views/home/mobile/components/lulz_bottomnavigationbar.dart';
+import '../../../services/auth/auth_controller.dart';
+import '../../../services/database/controllers/current_user_controller.dart';
+import '../../feed/mobile/m_feed.dart';
+import 'components/lulz_bottomnavigationbar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -13,6 +14,12 @@ class MHome extends StatefulWidget {
 }
 
 class _MHomeState extends State<MHome> {
+  @override
+  void initState() {
+    super.initState();
+    Get.put(CurrentUserContorller(), permanent: true);
+  }
+
   int _selectedIndex = 1;
   final List<Widget> _pages = [
     const Text('chat'),

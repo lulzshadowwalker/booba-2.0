@@ -1,9 +1,9 @@
 import 'dart:typed_data';
 
-import 'package:booba2/services/database/controllers/current_user_controller.dart';
-import 'package:booba2/services/database/database_controller.dart';
-import 'package:booba2/views/auth/mobile/signin/m_signin.dart';
-import 'package:booba2/views/home/mobile/m_home.dart';
+import '../database/controllers/current_user_controller.dart';
+import '../database/database_controller.dart';
+import '../../views/auth/mobile/signin/m_signin.dart';
+import '../../views/home/mobile/m_home.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 

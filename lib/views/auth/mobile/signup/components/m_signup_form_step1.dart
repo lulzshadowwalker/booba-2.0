@@ -1,7 +1,7 @@
-import 'package:booba2/helpers/lulz_imports.dart';
-import 'package:booba2/services/auth/auth_controller.dart';
-import 'package:booba2/views/auth/mobile/signin/m_signin.dart';
-import 'package:booba2/views/auth/mobile/signup/components/m_signup_form_step2.dart';
+import '../../../../../helpers/lulz_imports.dart';
+import '../../../../../services/auth/auth_controller.dart';
+import '../../signin/m_signin.dart';
+import 'm_signup_form_step2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';

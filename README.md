@@ -1,6 +1,6 @@
 # booba 2.0
-![cat_draw3](https://user-images.githubusercontent.com/92385434/165200803-26d1417b-67ef-4e6d-8aa4-e31168adaa0b.png)
 
+![cat_draw3](https://user-images.githubusercontent.com/92385434/165200803-26d1417b-67ef-4e6d-8aa4-e31168adaa0b.png)
 
 This project is meant as a learning experience, and not for production by any means.
 
@@ -10,8 +10,8 @@ I am aware of some bugs to be fixed and some improvements to be made.
 
 > I may or may not finish all the screens from the design draft in the next 10yrs ( https://www.figma.com/file/5q9LcASFlXNBV0YiFUhPx7/booba-v2?node-id=503%3A2097 )
 
-
 ## Table of contents
+
 - [Platforms](#platforms)
 - [Installation](#installation)
 - [What I learned](#what-i-learned)
@@ -24,12 +24,14 @@ I am aware of some bugs to be fixed and some improvements to be made.
 - [Attributes](#attributes)
 
 # Platforms
-- android
-> it can be built for IOS as well. <br>
-> the web version has been depricated.
 
+- android
+  
+  > it can be built for IOS as well. <br>
+  > the web version has been depricated.
 
 # Installation
+
 - Download the (.apk) file from the release section.
 
 # what I learned
@@ -165,9 +167,9 @@ GetX is a state management solution, it also offers navigation methods that avoi
 
 #### on update
 
-> This is kind of similar to `ChangeNotifier` from the `Provider` package which essentially allows you to notify listeners whenever you call the `notifyListeners()` method or in this case `update()`
+> This is kind of similar to `ChangeNotifier` which essentially allows you to notify listeners whenever you call the `notifyListeners()` method or in this case `update()`
 
-> similar to `Provider` where you have to extend the class with `ChangeNotifier` you have to make it extend `GetXController`
+> It is also similar where you have to extend the class with `ChangeNotifier` you have to make it extend `GetXController`
 
 - When instantiating an object from some class that extends `GetXController` you have to "inject" it using the `Get.put()` method
 
@@ -288,6 +290,7 @@ Instead of using `MediaQuery.of(context).size.height` to get the current height 
 YEP :D 
 
 # Attributes
+
 - [Cloud vectors](https://www.vecteezy.com/free-vector/cloud)
 - [Cartoon vectors](https://www.vecteezy.com/free-vector/cartoon)
 - [Sticker Vectors](https://www.vecteezy.com/free-vector/sticker)
@@ -296,4 +299,4 @@ YEP :D
 - [Love You Vectors](https://www.vecteezy.com/free-vector/love-you)
 - Landing page 1 illustration: Illustration by **Rosina Gavrilash** from Ouch!
 - Landing page illustrations: Illustration by **Icons 8** from Ouch!
-
+- [Splash screen bongoTap](https://betterttv.com/emotes/5ba6d5ba6ee0c23989d52b10)

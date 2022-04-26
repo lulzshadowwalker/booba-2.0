@@ -47,3 +47,4 @@ app.*.map.json
 
 # LULZ
 lib/LOCAL.dart
+android/app/google-services.json

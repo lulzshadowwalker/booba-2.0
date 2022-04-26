@@ -1,14 +1,14 @@
 import 'dart:typed_data';
 
-import 'package:booba2/helpers/lulz_imports.dart';
-import 'package:booba2/services/database/database_controller.dart';
-import 'package:booba2/views/add_post_details/components/lulz_tag.dart';
-import 'package:booba2/views/add_post_details/mobile/components/m_addpostdetails_appbar.dart';
-import 'package:booba2/views/add_post_details/mobile/controllers/tags_controller.dart';
-import 'package:booba2/views/home/mobile/m_home.dart';
-import 'package:booba2/views/shared/lulz_elevatedbutton/lulz_elevatedbutton.dart';
-import 'package:booba2/views/shared/lulz_formfield/lulz_formfield.dart';
-import 'package:booba2/views/shared/lulz_imagecard.dart/lulz_imagecard.dart';
+import '../../../helpers/lulz_imports.dart';
+import '../../../services/database/database_controller.dart';
+import '../components/lulz_tag.dart';
+import 'components/m_addpostdetails_appbar.dart';
+import 'controllers/tags_controller.dart';
+import '../../home/mobile/m_home.dart';
+import '../../shared/lulz_elevatedbutton/lulz_elevatedbutton.dart';
+import '../../shared/lulz_formfield/lulz_formfield.dart';
+import '../../shared/lulz_imagecard.dart/lulz_imagecard.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';

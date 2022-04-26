@@ -1,5 +1,5 @@
-import 'package:booba2/helpers/lulz_imports.dart';
-import 'package:booba2/views/landing_page/components/landing_page_template.dart';
+import '../../helpers/lulz_imports.dart';
+import 'components/landing_page_template.dart';
 import 'package:flutter/material.dart';
 
 class MLandingPage extends StatelessWidget {

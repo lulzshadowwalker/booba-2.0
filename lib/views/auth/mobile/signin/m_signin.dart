@@ -1,5 +1,5 @@
-import 'package:booba2/helpers/lulz_imports.dart';
-import 'package:booba2/views/auth/mobile/signin/components/m_signin_form.dart';
+import '../../../../helpers/lulz_imports.dart';
+import 'components/m_signin_form.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

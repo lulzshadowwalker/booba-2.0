@@ -51,6 +51,35 @@ class LulzHelpers {
     }
   }
 
+  static Future<List<Uint8List?>?> selectMultipleImages() async {
+    try {
+      ImagePicker imagePicker = ImagePicker();
+
+      /// I just dont like [if-else] statements.
+      List<XFile>? images = await imagePicker.pickMultiImage();
+
+      const String errorMessage = 'No image selected';
+      if (images == null) {
+        handleError(
+            snackbarTitle: errorMessage, error: errorMessage, name: _className);
+        return null;
+      }
+
+      List<Uint8List?>? imagesList = [];
+      for (var e in images) {
+        imagesList.add(await e.readAsBytes());
+      }
+
+      return imagesList;
+    } catch (e) {
+      handleError(
+          snackbarTitle: 'Error selecting image',
+          error: e.toString(),
+          name: _className);
+      return null;
+    }
+  }
+
   static double degToRad(double deg) {
     return deg * math.pi / 180;
   }

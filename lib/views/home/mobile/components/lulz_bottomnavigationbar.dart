@@ -1,4 +1,4 @@
-import 'package:booba2/helpers/lulz_imports.dart';
+import '../../../../helpers/lulz_imports.dart';
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:line_icons/line_icons.dart';

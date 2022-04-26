@@ -1,9 +1,9 @@
 import 'dart:typed_data';
 
-import 'package:booba2/helpers/lulz_imports.dart';
-import 'package:booba2/services/auth/auth_controller.dart';
-import 'package:booba2/services/database/controllers/current_user_controller.dart';
-import 'package:booba2/services/storage/storage_controller.dart';
+import '../../helpers/lulz_imports.dart';
+import '../auth/auth_controller.dart';
+import 'controllers/current_user_controller.dart';
+import '../storage/storage_controller.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:get/get.dart';
 import 'package:uuid/uuid.dart';
@@ -27,7 +27,7 @@ class DatabaseController {
   static const String _ownerId = 'ownerId';
   static const String _posts = 'posts';
   static const String _downloadUrl = 'downloadUrl';
-  static const String _userId = 'downloadUrl';
+  static const String _userId = 'userId';
   static const String _ownerProfilePicture = 'ownerProfilePicture';
 
   ///  add new user data on sign up [void] is cool
@@ -92,7 +92,7 @@ class DatabaseController {
         _postId: postId,
         _ownerId: ownerId,
         _ownerProfilePicture:
-            CurrentUserContorller().currentUserData.profilePicture,
+            Get.find<CurrentUserContorller>().currentUserData.profilePicture,
         _downloadUrl: downloadUrl,
       });
 
@@ -102,7 +102,7 @@ class DatabaseController {
         ]),
       });
     } catch (e) {
-    LulzHelpers.handleError(
+      LulzHelpers.handleError(
           snackbarTitle: 'error uploading image',
           error: e.toString(),
           name: _className);

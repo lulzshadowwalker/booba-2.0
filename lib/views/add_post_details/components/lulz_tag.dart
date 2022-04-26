@@ -1,5 +1,6 @@
-import 'package:booba2/helpers/lulz_imports.dart';
 import 'package:flutter/material.dart';
+
+import '../../../helpers/lulz_imports.dart';
 
 class LulzTag extends StatelessWidget {
   const LulzTag({

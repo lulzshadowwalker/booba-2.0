@@ -1,4 +1,4 @@
-import 'package:booba2/helpers/lulz_imports.dart';
+import '../../../helpers/lulz_imports.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -64,7 +64,7 @@ class LulzFormField extends StatelessWidget {
       decoration: InputDecoration(
         constraints: _constraints,
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(15.0.r)),
-        // contentPadding: const EdgeInsets.all(0),
+        contentPadding: EdgeInsets.only(bottom: 15.h),
         hintText: _hintText,
         hintStyle: LulzTextStyle.button?.copyWith(
             color: LulzColors.accent3, fontSize: LulzTextStyle().getMd),
