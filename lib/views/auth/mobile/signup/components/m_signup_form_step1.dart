@@ -108,7 +108,7 @@ class _MSignUpForm extends State<MSignUpFormStep1> {
 
       /// TODO: Better to use as-you-type textformatting instead of trimming
       _authController.userPassword = _passwordController.text.trim();
-      Get.to(() => MSignUpFormStep2());
+      Get.to(() => const MSignUpFormStep2());
     }
   }
 }

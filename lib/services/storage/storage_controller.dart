@@ -25,7 +25,7 @@ class StorageController {
       TaskSnapshot snapshot = await reference.putData(file);
 
       final String downloadUrl = await snapshot.ref.getDownloadURL();
-      Get.snackbar('Upload successful!', '');
+      // Get.snackbar('Upload successful!', '');
       return downloadUrl;
     } catch (e) {
       LulzHelpers.handleError(

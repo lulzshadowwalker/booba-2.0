@@ -1,7 +1,5 @@
-import 'package:booba2/helpers/lulz_imports.dart';
-import 'package:booba2/views/add_post_details/components/lulz_tag.dart';
-import 'package:get/get.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class TagsController extends GetxController {
   final RxList<String> _tags = <String>[].obs;

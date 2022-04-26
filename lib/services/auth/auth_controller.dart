@@ -1,5 +1,6 @@
 import 'dart:typed_data';
 
+import 'package:booba2/services/database/controllers/current_user_controller.dart';
 import 'package:booba2/services/database/database_controller.dart';
 import 'package:booba2/views/auth/mobile/signin/m_signin.dart';
 import 'package:booba2/views/home/mobile/m_home.dart';
@@ -39,7 +40,10 @@ class AuthController extends GetxController {
   _setScreen(User? currentUser) {
     currentUser == null
         ? Get.offAll(() => const MSignIn())
-        : Get.offAll(() => const MHome());
+        : {
+            Get.lazyPut(() => CurrentUserContorller()),
+            Get.offAll(() => const MHome())
+          };
   }
 
   /// State management, instead of passing parameters all over the place
@@ -61,7 +65,7 @@ class AuthController extends GetxController {
           email: userData.email!,
           password: userData.password!,
         )
-        .then((_) => Get.snackbar('Sign in successful!', ''))
+        // .then((_) => Get.snackbar('Sign in successful!', ''))
         .catchError((error) {
       LulzHelpers.handleError(
           snackbarTitle: 'Error signing up', error: error, name: _className);
@@ -94,7 +98,7 @@ class AuthController extends GetxController {
         profilePicture: userData.profilePictureData!,
       );
 
-      Get.snackbar('Sign up successful!', '');
+      // Get.snackbar('Sign up successful!', '');
     }).catchError((error) {
       LulzHelpers.handleError(
           snackbarTitle: 'Error signing up', error: error, name: _className);
@@ -104,7 +108,7 @@ class AuthController extends GetxController {
   void signOut() async {
     _auth
         .signOut()
-        .then((_) => Get.snackbar('Sign out successful!', ''))
+        // .then((_) => Get.snackbar('Sign out successful!', ''))
         .catchError((error) {
       LulzHelpers.handleError(
           snackbarTitle: 'Error signing out', error: error, name: _className);
@@ -113,8 +117,6 @@ class AuthController extends GetxController {
 
   User? get getUser => _auth.currentUser;
   static User? get currentUser => _auth.currentUser;
-
-  
 
   ///  END AUTH_CONTROLLER
 }

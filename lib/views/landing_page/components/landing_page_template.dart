@@ -1,5 +1,4 @@
 import 'package:booba2/helpers/lulz_imports.dart';
-import 'package:booba2/views/auth/mobile/signin/m_signin.dart';
 import 'package:booba2/views/landing_page/components/page_indicator.dart';
 import 'package:booba2/views/shared/lulz_shared.dart';
 import 'package:flutter/material.dart';
@@ -39,9 +38,8 @@ class MLandingPageTemplate extends StatelessWidget {
             /// [ShaderMask]: https://youtu.be/7sUL66pTQ7Q
             /// https://stackoverflow.com/questions/51686868/gradient-text-in-flutter
             blendMode: BlendMode.srcIn,
-            shaderCallback: (bounds) => LulzColors.gradient1.createShader(
-                  Rect.fromLTWH(0, 0, bounds.width, bounds.height),
-                ),
+            shaderCallback: (bounds) => LulzColors.gradient1
+                .createShader(Rect.fromLTWH(0, 0, bounds.width, bounds.height)),
             child: LulzText(
               text: _pageDetails.message,
               textWidth: 290.w,

@@ -1,7 +1,6 @@
 import 'package:booba2/helpers/lulz_imports.dart';
 import 'package:booba2/views/landing_page/components/landing_page_template.dart';
 import 'package:flutter/material.dart';
-import 'package:get_storage/get_storage.dart';
 
 class MLandingPage extends StatelessWidget {
   MLandingPage({Key? key}) : super(key: key);

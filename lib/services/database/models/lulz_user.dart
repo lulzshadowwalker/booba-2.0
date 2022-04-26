@@ -2,7 +2,7 @@ part of '../../../helpers/lulz_imports.dart';
 
 class LulzUser {
   String? email;
-  Map<String, String>? posts;
+  List? posts;
   String? profilePicture;
   String? status;
   String? username;
@@ -35,5 +35,5 @@ class LulzUser {
     userId = snapshot['userId'];
   }
 
-  void test() {}
+  /// END LULZUSER
 }

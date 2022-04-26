@@ -15,7 +15,7 @@ class TestFeed extends StatelessWidget {
             builder: (PostsController _) {
               return PageView.builder(
                 itemCount: _.getPosts.length,
-                itemBuilder: (context, index) => Container(
+                itemBuilder: (context, index) => SizedBox(
                     height: 150,
                     width: 100,
                     child: CachedNetworkImage(

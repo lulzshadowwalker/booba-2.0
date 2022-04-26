@@ -7,14 +7,10 @@ class CurrentUserContorller extends GetxController {
 
   LulzUser get currentUserData => _currentUserData.value;
 
+
   @override
   void onInit() {
     super.onInit();
-    print('LOOK HERE DUMBASS initial: ${_currentUserData.toString()}');
     _currentUserData.bindStream(DatabaseController().getCurrentUserData());
-
-    ever(_currentUserData, (e) {
-      print('LOOK HERE DUMBASS: ${e.toString()}');
-    });
   }
 }

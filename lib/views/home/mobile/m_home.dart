@@ -15,7 +15,7 @@ class MHome extends StatefulWidget {
 class _MHomeState extends State<MHome> {
   int _selectedIndex = 1;
   final List<Widget> _pages = [
-    const Text('💬 Chat'),
+    const Text('chat'),
     MFeed(),
     TextButton(
       child: const Text('🚪 Sign out'),

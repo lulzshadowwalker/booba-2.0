@@ -56,7 +56,7 @@ class MSignUpFormStep2 extends StatelessWidget {
                     ),
 
                     /// add profile picture / _usernameController.text.trim() ;section
-                    _UserInfo(),
+                    const _UserInfo(),
                     Container(),
                   ],
                 ),

@@ -2,6 +2,7 @@ import 'dart:typed_data';
 
 import 'package:booba2/helpers/lulz_imports.dart';
 import 'package:booba2/services/auth/auth_controller.dart';
+import 'package:booba2/services/database/controllers/current_user_controller.dart';
 import 'package:booba2/services/storage/storage_controller.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:get/get.dart';
@@ -26,6 +27,8 @@ class DatabaseController {
   static const String _ownerId = 'ownerId';
   static const String _posts = 'posts';
   static const String _downloadUrl = 'downloadUrl';
+  static const String _userId = 'downloadUrl';
+  static const String _ownerProfilePicture = 'ownerProfilePicture';
 
   ///  add new user data on sign up [void] is cool
   Future<void> registerNewUser({
@@ -44,6 +47,7 @@ class DatabaseController {
           childName: _profilePicture, file: profilePicture);
 
       await _firestore.collection(_usersCollection).doc(userId).set({
+        _userId: userId,
         _email: email,
         _password: password,
         _username: username,
@@ -53,7 +57,7 @@ class DatabaseController {
         _posts: [],
       });
 
-      Get.snackbar('Upload successful!', '');
+      // Get.snackbar('Upload successful!', '');
     } catch (e) {
       LulzHelpers.handleError(
           snackbarTitle: 'error signing up',
@@ -87,6 +91,8 @@ class DatabaseController {
         _likes: [],
         _postId: postId,
         _ownerId: ownerId,
+        _ownerProfilePicture:
+            CurrentUserContorller().currentUserData.profilePicture,
         _downloadUrl: downloadUrl,
       });
 
@@ -96,7 +102,7 @@ class DatabaseController {
         ]),
       });
     } catch (e) {
-      LulzHelpers.handleError(
+    LulzHelpers.handleError(
           snackbarTitle: 'error uploading image',
           error: e.toString(),
           name: _className);
@@ -106,9 +112,9 @@ class DatabaseController {
   Stream<List<LulzPost>> getPosts() {
     return _firestore.collection(_posts).snapshots().map((querySnapshot) {
       List<LulzPost> postsList = [];
-      querySnapshot.docs.forEach((e) {
+      for (var e in querySnapshot.docs) {
         postsList.add(LulzPost.fromDocumentSnapshot(e));
-      });
+      }
       return postsList;
     });
   }

@@ -46,7 +46,7 @@ class LulzFormField extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextFormField(
       textAlignVertical: TextAlignVertical.bottom,
-      maxLines: _maxLines == null ? 1 : _maxLines,
+      maxLines: _maxLines ?? 1,
       key: _formFieldKey,
       validator: _validator,
       cursorWidth: 5,
