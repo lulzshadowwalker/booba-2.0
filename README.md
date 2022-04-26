@@ -1,11 +1,19 @@
 # booba 2.0
+![cat_draw3](https://user-images.githubusercontent.com/92385434/165200803-26d1417b-67ef-4e6d-8aa4-e31168adaa0b.png)
+
 
 This project is meant as a learning experience, and not for production by any means.
 
 I'm still not settled on a certain folder structure, I will also be learning other stuff as I work on this project so if I learn something new I may or may not replace a previous approach or simply just start using the new approach from that point onwards, and that might cause some inconsistencies in the code, but for now it's okay.
 
-## Table of contents
+I am aware of some bugs to be fixed and some improvements to be made.
 
+> I may or may not finish all the screens from the design draft in the next 10yrs ( https://www.figma.com/file/5q9LcASFlXNBV0YiFUhPx7/booba-v2?node-id=503%3A2097 )
+
+
+## Table of contents
+- [Platforms](#platforms)
+- [Installation](#installation)
 - [What I learned](#what-i-learned)
 - [GetX](#getx)
   - [Navigation](#navigation)
@@ -13,6 +21,16 @@ I'm still not settled on a certain folder structure, I will also be learning oth
     - [on update](#on-update)
     - [Reactive](#reactive)
   - [More GetX features](#more-getX-features)
+- [Attributes](#attributes)
+
+# Platforms
+- android
+> it can be built for IOS as well. <br>
+> the web version has been depricated.
+
+
+# Installation
+- Download the (.apk) file from the release section.
 
 # what I learned
 
@@ -268,3 +286,14 @@ instead of importing `dart:io show Platform` you can simply check for platform e
 Instead of using `MediaQuery.of(context).size.height` to get the current height of the screen, you can simply use `Get.height` 
 
 YEP :D 
+
+# Attributes
+- [Cloud vectors](https://www.vecteezy.com/free-vector/cloud)
+- [Cartoon vectors](https://www.vecteezy.com/free-vector/cartoon)
+- [Sticker Vectors](https://www.vecteezy.com/free-vector/sticker)
+- [Christmas food stickers](https://www.vector4free.com/set-of-christmas-food-stickers)
+- [Ball Vectors](https://www.vecteezy.com/free-vector/ball)
+- [Love You Vectors](https://www.vecteezy.com/free-vector/love-you)
+- Landing page 1 illustration: Illustration by **Rosina Gavrilash** from Ouch!
+- Landing page illustrations: Illustration by **Icons 8** from Ouch!
+
