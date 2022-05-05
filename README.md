@@ -28,7 +28,12 @@ I am aware of some bugs to be fixed and some improvements to be made.
 - android
   
   > it can be built for IOS as well. <br>
-  > the web version has been depricated.
+
+![CODE-MOBILE](https://user-images.githubusercontent.com/92385434/166739362-c41b971f-b0ad-41c6-8677-73d967710617.png)
+
+  > **deprecated. web version:** <br>
+  > ![CODE-WEB](https://user-images.githubusercontent.com/92385434/166865254-1fe47f5a-2716-4b8c-8e6f-8af547141f5c.png)
+
 
 # Installation
 
@@ -289,7 +294,7 @@ Instead of using `MediaQuery.of(context).size.height` to get the current height 
 
 YEP :D 
 
-# Attributes
+# Attributions
 
 - [Cloud vectors](https://www.vecteezy.com/free-vector/cloud)
 - [Cartoon vectors](https://www.vecteezy.com/free-vector/cartoon)
