@@ -21,7 +21,7 @@ I am aware of some bugs to be fixed and some improvements to be made.
     - [on update](#on-update)
     - [Reactive](#reactive)
   - [More GetX features](#more-getX-features)
-- [Attributes](#attributes)
+- [Attributions](#attributions)
 
 # Platforms
 
@@ -29,7 +29,7 @@ I am aware of some bugs to be fixed and some improvements to be made.
   
   > it can be built for IOS as well. <br>
 
-![CODE-MOBILE](https://user-images.githubusercontent.com/92385434/166739362-c41b971f-b0ad-41c6-8677-73d967710617.png)
+![CODE-MOBILE](https://user-images.githubusercontent.com/92385434/174043985-d198ce2f-0940-45e8-b385-86b3fb970df0.png)
 
   > **deprecated. web version:** <br>
   > ![CODE-WEB](https://user-images.githubusercontent.com/92385434/166865254-1fe47f5a-2716-4b8c-8e6f-8af547141f5c.png)
